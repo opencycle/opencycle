@@ -1,0 +1,16 @@
+sudo: false
+
+language: php
+
+php:
+  - 7.1
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+script:
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+
+after_success:
+  - bash <(curl -s build/logs/ https://codecov.io/bash)
