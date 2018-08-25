@@ -16,7 +16,5 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@opencycle.com',
             'password' => bcrypt('password'),
         ]);
-
-        factory(User::class, 10)->create();
     }
 }
