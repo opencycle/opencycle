@@ -5,6 +5,7 @@ namespace OpenCycle\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use OpenCycle\Http\Requests\Users\CreateUserRequest;
+use OpenCycle\Http\Requests\Users\UpdateUserRequest;
 use OpenCycle\User;
 use Illuminate\Http\Request;
 
@@ -76,11 +77,11 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \OpenCycle\User  $user
+     * @param UpdateUserRequest $request
+     * @param  \OpenCycle\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         $user->update($request->all());
 

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use OpenCycle\Advert;
 use OpenCycle\Policies\AdvertPolicy;
+use OpenCycle\Policies\UserPolicy;
+use OpenCycle\User;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -16,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Advert::class => AdvertPolicy::class,
+        User::class => UserPolicy::class,
     ];
 
     /**
@@ -26,7 +29,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
     }
 }

@@ -11,21 +11,23 @@
 |
 */
 
-
+// Login
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('register', 'UserController@create')->name('users.create');
-Route::post('register', 'UserController@store')->name('users.store');
-Route::get('users/{user}', 'UserController@show')->name('users.show');
-Route::get('profile', 'UserController@profile')->name('profile');
-
+// Passwords
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-Route::get('/', 'AdvertController@index');
+// Users
+Route::get('profile', 'UserController@profile')->name('profile');
+Route::resource('users', 'UserController')->except([
+    'index', 'destroy'
+]);
 
+// Adverts
+Route::get('/', 'AdvertController@index');
 Route::resource('adverts', 'AdvertController');
