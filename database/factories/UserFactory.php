@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 
 $factory->define(OpenCycle\User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
+        'username' => $faker->userName,
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),

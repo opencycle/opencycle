@@ -2,6 +2,8 @@
 
 @section('content')
     <div class="container">
-        {{ $advert->title }}
+        <h1>{{ $advert->title }}</h1>
+        {{ $advert->user->username }}
+        {{ $advert->description }}
     </div>
 @endsection

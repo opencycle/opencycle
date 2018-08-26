@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         @foreach ($adverts as $advert)
-            {{ $advert->title }}
+            <a href="{{ route('adverts.show', $advert) }}">{{ $advert->title }}</a>
         @endforeach
     </div>
 
