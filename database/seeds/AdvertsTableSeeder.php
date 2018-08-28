@@ -1,6 +1,6 @@
 <?php
 
-use OpenCycle\Advert;
+use Opencycle\Advert;
 use Illuminate\Database\Seeder;
 
 class AdvertsTableSeeder extends Seeder

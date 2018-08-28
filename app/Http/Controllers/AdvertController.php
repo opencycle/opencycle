@@ -3,6 +3,7 @@
 namespace Opencycle\Http\Controllers;
 
 use Opencycle\Advert;
+use Opencycle\Events\AdvertCreated;
 use Opencycle\Http\Requests\Adverts\CreateAdvertRequest;
 use Opencycle\Http\Requests\Adverts\UpdateAdvertRequest;
 
@@ -41,6 +42,8 @@ class AdvertController extends Controller
         $advert = new Advert($request->all());
         $advert->user()->associate($request->user());
         $advert->save();
+
+        event(new AdvertCreated($advert));
 
         return redirect()->route('adverts.index')->with('success', 'Created new advert');
     }

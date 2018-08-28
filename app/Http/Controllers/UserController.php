@@ -2,6 +2,7 @@
 
 namespace Opencycle\Http\Controllers;
 
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Opencycle\Http\Requests\Users\CreateUserRequest;
@@ -33,6 +34,8 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        event(new Registered($user));
 
         Auth::login($user);
 

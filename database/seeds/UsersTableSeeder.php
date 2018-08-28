@@ -1,6 +1,6 @@
 <?php
 
-use OpenCycle\User;
+use Opencycle\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
