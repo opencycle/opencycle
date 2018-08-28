@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenCycle\Policies;
+namespace Opencycle\Policies;
 
-use OpenCycle\User;
+use Opencycle\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UserPolicy
@@ -12,8 +12,8 @@ class UserPolicy
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \OpenCycle\User  $user
-     * @param  \OpenCycle\User  $model
+     * @param  \Opencycle\User  $user
+     * @param  \Opencycle\User  $model
      * @return mixed
      */
     public function update(User $user, User $model)

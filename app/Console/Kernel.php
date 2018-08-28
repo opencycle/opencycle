@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenCycle\Console;
+namespace Opencycle\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

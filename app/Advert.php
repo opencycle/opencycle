@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenCycle;
+namespace Opencycle;
 
 use Illuminate\Database\Eloquent\Model;
 

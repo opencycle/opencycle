@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenCycle\Exceptions;
+namespace Opencycle\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

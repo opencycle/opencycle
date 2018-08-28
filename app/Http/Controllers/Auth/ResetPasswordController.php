@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenCycle\Http\Controllers\Auth;
+namespace Opencycle\Http\Controllers\Auth;
 
-use OpenCycle\Http\Controllers\Controller;
+use Opencycle\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller

@@ -1,13 +1,13 @@
 <?php
 
-namespace OpenCycle\Providers;
+namespace Opencycle\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use OpenCycle\Advert;
-use OpenCycle\Policies\AdvertPolicy;
-use OpenCycle\Policies\UserPolicy;
-use OpenCycle\User;
+use Opencycle\Advert;
+use Opencycle\Policies\AdvertPolicy;
+use Opencycle\Policies\UserPolicy;
+use Opencycle\User;
 
 class AuthServiceProvider extends ServiceProvider
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenCycle\Http\Requests\Users;
+namespace Opencycle\Http\Requests\Users;
 
 use Illuminate\Foundation\Http\FormRequest;
 

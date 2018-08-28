@@ -24,7 +24,7 @@
             "database/factories"
         ],
         "psr-4": {
-            "OpenCycle\\": "app/"
+            "Opencycle\\": "app/"
         }
     },
     "autoload-dev": {

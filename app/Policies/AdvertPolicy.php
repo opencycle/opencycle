@@ -1,9 +1,9 @@
 <?php
 
-namespace OpenCycle\Policies;
+namespace Opencycle\Policies;
 
-use OpenCycle\User;
-use OpenCycle\Advert;
+use Opencycle\User;
+use Opencycle\Advert;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AdvertPolicy
@@ -13,8 +13,8 @@ class AdvertPolicy
     /**
      * Determine whether the user can update the advert.
      *
-     * @param  \OpenCycle\User  $user
-     * @param  \OpenCycle\Advert  $advert
+     * @param  \Opencycle\User  $user
+     * @param  \Opencycle\Advert  $advert
      * @return mixed
      */
     public function update(User $user, Advert $advert)
@@ -25,8 +25,8 @@ class AdvertPolicy
     /**
      * Determine whether the user can delete the advert.
      *
-     * @param  \OpenCycle\User  $user
-     * @param  \OpenCycle\Advert  $advert
+     * @param  \Opencycle\User  $user
+     * @param  \Opencycle\Advert  $advert
      * @return mixed
      */
     public function delete(User $user, Advert $advert)

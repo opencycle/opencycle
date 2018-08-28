@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(OpenCycle\User::class, function (Faker $faker) {
+$factory->define(Opencycle\User::class, function (Faker $faker) {
     return [
         'username' => $faker->userName,
         'email' => $faker->unique()->safeEmail,

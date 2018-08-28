@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenCycle\Http\Middleware;
+namespace Opencycle\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace OpenCycle\Http\Controllers;
+namespace Opencycle\Http\Controllers;
 
-use OpenCycle\Advert;
-use OpenCycle\Http\Requests\Adverts\CreateAdvertRequest;
-use OpenCycle\Http\Requests\Adverts\UpdateAdvertRequest;
+use Opencycle\Advert;
+use Opencycle\Http\Requests\Adverts\CreateAdvertRequest;
+use Opencycle\Http\Requests\Adverts\UpdateAdvertRequest;
 
 class AdvertController extends Controller
 {

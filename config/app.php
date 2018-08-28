@@ -154,11 +154,11 @@ return [
         /*
          * Application Service Providers...
          */
-        OpenCycle\Providers\AppServiceProvider::class,
-        OpenCycle\Providers\AuthServiceProvider::class,
-        // OpenCycle\Providers\BroadcastServiceProvider::class,
-        OpenCycle\Providers\EventServiceProvider::class,
-        OpenCycle\Providers\RouteServiceProvider::class,
+        Opencycle\Providers\AppServiceProvider::class,
+        Opencycle\Providers\AuthServiceProvider::class,
+        // Opencycle\Providers\BroadcastServiceProvider::class,
+        Opencycle\Providers\EventServiceProvider::class,
+        Opencycle\Providers\RouteServiceProvider::class,
 
     ],
 

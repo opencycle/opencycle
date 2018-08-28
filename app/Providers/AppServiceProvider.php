@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenCycle\Providers;
+namespace Opencycle\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

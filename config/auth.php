@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => OpenCycle\User::class,
+            'model' => Opencycle\User::class,
         ],
 
         // 'users' => [

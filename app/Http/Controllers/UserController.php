@@ -1,13 +1,12 @@
 <?php
 
-namespace OpenCycle\Http\Controllers;
+namespace Opencycle\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use OpenCycle\Http\Requests\Users\CreateUserRequest;
-use OpenCycle\Http\Requests\Users\UpdateUserRequest;
-use OpenCycle\User;
-use Illuminate\Http\Request;
+use Opencycle\Http\Requests\Users\CreateUserRequest;
+use Opencycle\Http\Requests\Users\UpdateUserRequest;
+use Opencycle\User;
 
 class UserController extends Controller
 {
@@ -43,7 +42,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \OpenCycle\User  $user
+     * @param  \Opencycle\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -66,7 +65,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \OpenCycle\User  $user
+     * @param  \Opencycle\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -78,7 +77,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param UpdateUserRequest $request
-     * @param  \OpenCycle\User $user
+     * @param  \Opencycle\User $user
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateUserRequest $request, User $user)

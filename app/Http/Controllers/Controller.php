@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenCycle\Http\Controllers;
+namespace Opencycle\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

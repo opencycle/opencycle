@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenCycle\Http;
+namespace Opencycle\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -14,11 +14,11 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        \OpenCycle\Http\Middleware\CheckForMaintenanceMode::class,
+        \Opencycle\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \OpenCycle\Http\Middleware\TrimStrings::class,
+        \Opencycle\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \OpenCycle\Http\Middleware\TrustProxies::class,
+        \Opencycle\Http\Middleware\TrustProxies::class,
     ];
 
     /**
@@ -28,12 +28,12 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \OpenCycle\Http\Middleware\EncryptCookies::class,
+            \Opencycle\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \OpenCycle\Http\Middleware\VerifyCsrfToken::class,
+            \Opencycle\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -56,7 +56,7 @@ class Kernel extends HttpKernel
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \OpenCycle\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \Opencycle\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];

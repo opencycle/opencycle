@@ -2,8 +2,8 @@
 
 use Faker\Generator as Faker;
 
-use OpenCycle\Advert;
-use OpenCycle\User;
+use Opencycle\Advert;
+use Opencycle\User;
 
 $factory->define(Advert::class, function (Faker $faker) {
     return [

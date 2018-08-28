@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenCycle\Http\Requests\Adverts;
+namespace Opencycle\Http\Requests\Adverts;
 
 use Illuminate\Foundation\Http\FormRequest;
 
