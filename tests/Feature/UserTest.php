@@ -56,4 +56,22 @@ class UserTest extends TestCase
 
         $this->assertDatabaseHas('users', $newData);
     }
+
+    /**
+     * Test a user cannot edit other users profiles.
+     *
+     * @return void
+     */
+    public function testUserCannotEditOtherUsersProfile()
+    {
+        $user = factory(User::class)->create();
+        $otherUser = factory(User::class)->create();
+
+        $response = $this->actingAs($user)->patch(route('users.update', $otherUser), [
+            'username' => $this->faker->userName,
+            'email' => $this->faker->email,
+        ]);
+
+        $response->assertForbidden();
+    }
 }
