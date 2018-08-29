@@ -19,10 +19,12 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->integer('user_id')->unsigned();
+            $table->integer('group_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('group_id')->references('id')->on('groups');
         });
     }
 
