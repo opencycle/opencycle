@@ -11,6 +11,33 @@
 |
 */
 
+// Countries
+Route::get('/', 'CountryController@index');
+Route::resource('countries', 'CountryController')->only([
+    'show'
+]);
+
+// Regions
+Route::resource('regions', 'RegionController')->only([
+    'show'
+]);
+
+// Groups
+Route::resource('groups', 'GroupController')->only([
+    'show'
+]);
+
+// Posts
+Route::resource('posts', 'PostController')->except([
+    'index'
+]);
+
+// Users
+Route::get('profile', 'UserController@profile')->name('profile');
+Route::resource('users', 'UserController')->except([
+    'index', 'destroy'
+]);
+
 // Login
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login');
@@ -21,13 +48,3 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-
-// Users
-Route::get('profile', 'UserController@profile')->name('profile');
-Route::resource('users', 'UserController')->except([
-    'index', 'destroy'
-]);
-
-// Posts
-Route::get('/', 'PostController@index');
-Route::resource('posts', 'PostController');
