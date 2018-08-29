@@ -2,21 +2,22 @@
 
 namespace Opencycle\Http\Controllers;
 
+use Opencycle\Country;
 use Opencycle\Region;
-use Illuminate\Http\Request;
 
 class RegionController extends Controller
 {
     /**
      * Display the specified resource.
      *
-     * @param  \Opencycle\Region  $region
+     * @param Country $country
+     * @param Region $region
      * @return \Illuminate\Http\Response
      */
-    public function show(Region $region)
+    public function show(Country $country, Region $region)
     {
         $groups = $region->groups()->paginate(5);
 
-        return view('regions.show', compact('groups'));
+        return view('regions.show', compact('region', 'country', 'groups'));
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         @foreach ($groups as $group)
-            <a href="{{ route('groups.show', $group) }}">{{ $group->name }}</a>
+            <a href="{{ route('countries.regions.groups.show', [$country, $region, $group]) }}">{{ $group->name }}</a>
         @endforeach
     </div>
 

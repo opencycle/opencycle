@@ -18,12 +18,12 @@ Route::resource('countries', 'CountryController')->only([
 ]);
 
 // Regions
-Route::resource('regions', 'RegionController')->only([
+Route::resource('countries.regions', 'RegionController')->only([
     'show'
 ]);
 
 // Groups
-Route::resource('groups', 'GroupController')->only([
+Route::resource('countries.regions.groups', 'GroupController')->only([
     'show'
 ]);
 

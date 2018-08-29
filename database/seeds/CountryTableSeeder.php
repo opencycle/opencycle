@@ -14,6 +14,7 @@ class CountryTableSeeder extends Seeder
     {
         factory(Country::class)->create([
             'name' => 'United Kingdom',
+            'code' => 'UK',
         ]);
     }
 }
