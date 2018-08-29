@@ -1,7 +1,6 @@
 <?php
 
 use Faker\Generator as Faker;
-
 use Opencycle\Post;
 use Opencycle\User;
 use Opencycle\Group;
