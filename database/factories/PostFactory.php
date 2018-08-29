@@ -2,10 +2,10 @@
 
 use Faker\Generator as Faker;
 
-use Opencycle\Advert;
+use Opencycle\Post;
 use Opencycle\User;
 
-$factory->define(Advert::class, function (Faker $faker) {
+$factory->define(Post::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence,
         'description' => $faker->paragraph,

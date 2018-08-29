@@ -28,6 +28,6 @@ Route::resource('users', 'UserController')->except([
     'index', 'destroy'
 ]);
 
-// Adverts
-Route::get('/', 'AdvertController@index');
-Route::resource('adverts', 'AdvertController');
+// Posts
+Route::get('/', 'PostController@index');
+Route::resource('posts', 'PostController');

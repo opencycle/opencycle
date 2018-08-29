@@ -4,8 +4,8 @@ namespace Opencycle\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Opencycle\Advert;
-use Opencycle\Policies\AdvertPolicy;
+use Opencycle\Post;
+use Opencycle\Policies\PostPolicy;
 use Opencycle\Policies\UserPolicy;
 use Opencycle\User;
 
@@ -17,7 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Advert::class => AdvertPolicy::class,
+        Post::class => PostPolicy::class,
         User::class => UserPolicy::class,
     ];
 

@@ -1,9 +1,9 @@
 <?php
 
-use Opencycle\Advert;
+use Opencycle\Post;
 use Illuminate\Database\Seeder;
 
-class AdvertsTableSeeder extends Seeder
+class PostsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class AdvertsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Advert::class, 10)->create();
+        factory(Post::class, 10)->create();
     }
 }

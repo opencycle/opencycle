@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('adverts.update', $advert) }}" method="POST">
+    <form action="{{ route('posts.update', $post) }}" method="POST">
         @csrf
         @method('PATCH')
 
@@ -9,14 +9,14 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Title:</strong>
-                    <input type="text" name="title" value="{{ $advert->title }}" class="form-control" placeholder="Title">
+                    <input type="text" name="title" value="{{ $post->title }}" class="form-control" placeholder="Title">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Description:</strong>
                     <textarea class="form-control" style="height:150px" name="description" placeholder="Description">
-                        {{ $advert->description }}
+                        {{ $post->description }}
                     </textarea>
                 </div>
             </div>

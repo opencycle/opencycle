@@ -5,7 +5,7 @@ namespace Opencycle;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
-class Advert extends Model
+class Post extends Model
 {
     use Sluggable;
 
@@ -43,7 +43,7 @@ class Advert extends Model
     }
 
     /**
-     * The user who posted this advert.
+     * The user who posted this post.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

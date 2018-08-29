@@ -1,10 +1,10 @@
 <?php
 
-namespace Opencycle\Http\Requests\Adverts;
+namespace Opencycle\Http\Requests\Posts;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateAdvertRequest extends FormRequest
+class CreatePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,9 +13,7 @@ class UpdateAdvertRequest extends FormRequest
      */
     public function authorize()
     {
-        $advert = $this->route('advert');
-
-        return $advert && $this->user()->can('update', $advert);
+        return true;
     }
 
     /**

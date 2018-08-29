@@ -1,10 +1,10 @@
 <?php
 
-namespace Opencycle\Http\Requests\Adverts;
+namespace Opencycle\Http\Requests\Posts;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteAdvertRequest extends FormRequest
+class UpdatePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,9 +13,9 @@ class DeleteAdvertRequest extends FormRequest
      */
     public function authorize()
     {
-        $advert = $this->route('advert');
+        $post = $this->route('post');
 
-        return $advert && $this->user()->can('delete', $advert);
+        return $post && $this->user()->can('update', $post);
     }
 
     /**
@@ -26,7 +26,8 @@ class DeleteAdvertRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|max:255',
+            'description' => 'required',
         ];
     }
 }

@@ -28,12 +28,12 @@ class User extends Authenticatable
     ];
 
     /**
-     * This users adverts.
+     * This users posts.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function adverts()
+    public function posts()
     {
-        return $this->hasMany(Advert::class);
+        return $this->hasMany(Post::class);
     }
 }

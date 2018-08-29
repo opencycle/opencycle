@@ -4,26 +4,26 @@ namespace Opencycle\Events;
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
-use Opencycle\Advert;
+use Opencycle\Post;
 
-class AdvertCreated
+class PostCreated
 {
     use Dispatchable, SerializesModels;
 
     /**
-     * The advert that was created.
+     * The post that was created.
      *
-     * @var Advert
+     * @var Post
      */
-    private $advert;
+    private $post;
 
     /**
      * Create a new event instance.
      *
-     * @param Advert $advert
+     * @param Post $post
      */
-    public function __construct(Advert $advert)
+    public function __construct(Post $post)
     {
-        $this->advert = $advert;
+        $this->post = $post;
     }
 }
