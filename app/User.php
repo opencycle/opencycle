@@ -28,6 +28,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * The Role this User belongs to.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function region()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    /**
      * This users posts.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

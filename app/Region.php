@@ -4,25 +4,25 @@ namespace Opencycle;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class Region extends Model
 {
     /**
-     * The Region this Group is in.
+     * The Country this region is in.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function region()
+    public function country()
     {
-        return $this->belongsTo(Region::class);
+        return $this->belongsTo(Country::class);
     }
 
     /**
-     * This groups posts.
+     * This regions groups.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function posts()
+    public function groups()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Group::class);
     }
 }
