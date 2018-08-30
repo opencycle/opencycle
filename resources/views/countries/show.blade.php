@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         @foreach ($regions as $region)
-            <a href="{{ route('countries.regions.show', [$country, $region]) }}">{{ $region->name }}</a>
+            <a href="{{ route('regions.show', [$country, $region]) }}">{{ $region->name }}</a>
         @endforeach
     </div>
 

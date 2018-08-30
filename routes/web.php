@@ -13,19 +13,13 @@
 
 // Countries
 Route::get('/', 'CountryController@index');
-Route::resource('countries', 'CountryController')->only([
-    'show'
-]);
+Route::get('{country}', 'CountryController@show')->name('countries.show');
 
 // Regions
-Route::resource('countries.regions', 'RegionController')->only([
-    'show'
-]);
+Route::get('{country}/{region}', 'RegionController@show')->name('regions.show');
 
 // Groups
-Route::resource('countries.regions.groups', 'GroupController')->only([
-    'show'
-]);
+Route::get('{country}/{region}/{group}', 'GroupController@show')->name('groups.show');
 
 // Posts
 Route::resource('posts', 'PostController')->except([
