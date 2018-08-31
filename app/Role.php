@@ -9,12 +9,11 @@ class Role extends Model
     /**
      * Get Role of a specific type.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
      * @param string $type
      * @return Role
      */
-    public function scopeOfType($query, string $type)
+    public static function ofType(string $type)
     {
-        return $query->where('name', $type)->first();
+        return static::where('name', $type)->first();
     }
 }

@@ -36,3 +36,9 @@ $ php artisan key:generate
 ```
 
 Then copy `.env.example` to `.env` and modify the values for your setup.
+
+Finally you need to seed your database with data:
+
+```bash
+$ php artisan db:seed
+```
