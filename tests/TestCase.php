@@ -11,4 +11,16 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication,
         WithFaker,
         RefreshDatabase;
+
+    /**
+     * Setup the test environment.
+     *
+     * @return void
+     */
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->artisan('db:seed');
+    }
 }

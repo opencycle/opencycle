@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Opencycle\Http\Requests\Users\CreateUserRequest;
 use Opencycle\Http\Requests\Users\UpdateUserRequest;
+use Opencycle\Role;
 use Opencycle\User;
 
 class UserController extends Controller
@@ -29,11 +30,15 @@ class UserController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        $user = User::create([
+        $user = new User([
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $user->role()->associate(Role::ofType('user'));
+
+        $user->save();
 
         event(new Registered($user));
 

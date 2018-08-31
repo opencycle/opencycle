@@ -28,11 +28,22 @@ class User extends Authenticatable
     ];
 
     /**
+     * Check if this User has this Role.
+     *
+     * @param Role $role
+     * @return bool
+     */
+    public function hasRole(Role $role): bool
+    {
+        return $this->role === $role;
+    }
+
+    /**
      * The Role this User belongs to.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function region()
+    public function role()
     {
         return $this->belongsTo(Role::class);
     }

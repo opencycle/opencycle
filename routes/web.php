@@ -11,16 +11,6 @@
 |
 */
 
-// Countries
-Route::get('/', 'CountryController@index');
-Route::get('{country}', 'CountryController@show')->name('countries.show');
-
-// Regions
-Route::get('{country}/{region}', 'RegionController@show')->name('regions.show');
-
-// Groups
-Route::get('{country}/{region}/{group}', 'GroupController@show')->name('groups.show');
-
 // Posts
 Route::resource('posts', 'PostController')->except([
     'index'
@@ -42,3 +32,13 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+// Countries
+Route::get('/', 'CountryController@index');
+Route::get('{country}', 'CountryController@show')->name('countries.show');
+
+// Regions
+Route::get('{country}/{region}', 'RegionController@show')->name('regions.show');
+
+// Groups
+Route::get('{country}/{region}/{group}', 'GroupController@show')->name('groups.show');
