@@ -6,7 +6,7 @@ use Opencycle\Group;
 use Opencycle\User;
 use Tests\TestCase;
 
-class UserTest extends TestCase
+class PostTest extends TestCase
 {
     /**
      * Test a user can create a new post.
