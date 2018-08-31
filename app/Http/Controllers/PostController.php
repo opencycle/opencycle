@@ -23,6 +23,19 @@ class PostController extends Controller
     }
 
     /**
+     * Display a listing of the logged in users posts.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function user()
+    {
+        $user = Auth::user();
+        $posts = $user->posts->paginate(5);
+
+        return view('posts.index', compact('posts'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

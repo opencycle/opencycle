@@ -52,4 +52,12 @@ class Group extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+    /**
+     * The users that belong to the group.
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

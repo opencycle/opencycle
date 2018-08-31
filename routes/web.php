@@ -19,10 +19,10 @@ Route::resource('posts', 'PostController')->except([
 // Users
 Route::group(['middleware' => ['auth']], function () {
     Route::get('profile', 'UserController@profile')->name('profile');
-    Route::resource('users', 'UserController')->except([
-        'index', 'destroy'
-    ]);
 });
+Route::resource('users', 'UserController')->except([
+    'index', 'destroy'
+]);
 
 // Login
 Route::group(['middleware' => ['guest']], function () {
