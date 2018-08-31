@@ -17,24 +17,30 @@ Route::resource('posts', 'PostController')->except([
 ]);
 
 // Users
-Route::get('profile', 'UserController@profile')->name('profile');
-Route::resource('users', 'UserController')->except([
-    'index', 'destroy'
-]);
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('profile', 'UserController@profile')->name('profile');
+    Route::resource('users', 'UserController')->except([
+        'index', 'destroy'
+    ]);
+});
 
 // Login
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login')->name('login');
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Auth\LoginController@login')->name('login');
+});
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Passwords
-Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+    Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+});
 
 // Countries
-Route::get('/', 'CountryController@index');
+Route::get('/', 'CountryController@index')->name('home');
 Route::get('{country}', 'CountryController@show')->name('countries.show');
 
 // Regions

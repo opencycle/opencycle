@@ -2,6 +2,7 @@
 
 namespace Opencycle\Http\Controllers;
 
+use Opencycle\Group;
 use Opencycle\Post;
 use Opencycle\Events\PostCreated;
 use Opencycle\Http\Requests\Posts\CreatePostRequest;
@@ -28,7 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $groups = Group::all();
+
+        return view('posts.create', compact('groups'));
     }
 
     /**
@@ -39,13 +42,16 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        $post = new Post($request->all());
+        $post = new Post($request->except('group'));
+
         $post->user()->associate($request->user());
+        $post->group()->associate(Group::find($request->group));
+
         $post->save();
 
         event(new PostCreated($post));
 
-        return redirect()->route('posts.index')->with('success', 'Created new post');
+        return redirect()->route('posts.show', $post)->with('success', 'Created new post');
     }
 
     /**
