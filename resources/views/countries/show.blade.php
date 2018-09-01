@@ -2,10 +2,11 @@
 
 @section('content')
     <div class="container">
-        @foreach ($regions as $region)
-            <a href="{{ route('regions.show', [$country, $region]) }}">{{ $region->name }}</a>
-        @endforeach
+        <a href="{{ route('home') }}">View other countries</a>
+        <ul>
+            @foreach ($regions as $region)
+                <li><a href="{{ route('regions.show', [$country, $region]) }}">{{ $region->name }}</a></li>
+            @endforeach
+        </ul>
     </div>
-
-    {{ $regions->links() }}
 @endsection
