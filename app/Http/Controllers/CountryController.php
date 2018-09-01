@@ -27,7 +27,7 @@ class CountryController extends Controller
      */
     public function show(Country $country)
     {
-        $regions = $country->regions()->paginate(5);
+        $regions = $country->regions()->get();
 
         return view('countries.show', compact('country', 'regions'));
     }

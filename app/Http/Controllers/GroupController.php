@@ -33,6 +33,20 @@ class GroupController extends Controller
         $user = Auth::user();
         $groups = $user->groups->paginate(5);
 
-        return view('posts.index', compact('posts'));
+        return view('posts.index', compact('posts', 'groups'));
+    }
+
+    /**
+     * Makes the current user a member of the specified group.
+     *
+     * @param Group $group
+     * @return \Illuminate\Http\Response
+     */
+    public function join(Group $group)
+    {
+        $user = Auth::user();
+        $user->groups()->attach($group);
+
+        return redirect()->route('groups.show', $group)->with('success', 'You have joined this group');
     }
 }
