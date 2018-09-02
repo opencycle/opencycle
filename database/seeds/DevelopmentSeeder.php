@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Opencycle\Group;
+use Opencycle\Post;
+use Opencycle\Region;
 
 class DevelopmentSeeder extends Seeder
 {
@@ -11,6 +14,14 @@ class DevelopmentSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(PostsTableSeeder::class);
+        factory(Region::class, 5)->create()->each(function ($region) {
+            factory(Group::class, 5)->create([
+                'region_id' => $region->id,
+            ])->each(function ($group) {
+                factory(Post::class, 10)->create([
+                    'group_id' => $group->id,
+                ]);
+            });
+        });
     }
 }

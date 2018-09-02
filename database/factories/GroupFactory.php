@@ -6,7 +6,8 @@ use Opencycle\Region;
 
 $factory->define(Group::class, function (Faker $faker) {
     return [
-        'name' => $faker->word,
+        'name' => $faker->city,
+        'description' => $faker->paragraph,
         'region_id' => function () {
             return factory(Region::class)->create()->id;
         },

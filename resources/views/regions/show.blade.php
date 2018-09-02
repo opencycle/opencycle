@@ -14,7 +14,6 @@
                 <a class="list-group-item list-group-item-action" href="{{ route('groups.show', [$country, $region, $group]) }}">{{ $group->name }}</a>
             @endforeach
         </ul>
+        {{ $groups->links() }}
     </div>
-
-    {{ $groups->links() }}
 @endsection

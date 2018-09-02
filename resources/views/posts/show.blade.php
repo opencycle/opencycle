@@ -2,9 +2,14 @@
 
 @section('content')
     <div class="container">
+
         <div class="row">
             <div class="col-md-8">
-                <h3>{{ $post->title }}</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('groups.show', [$country, $region, $group]) }}">Back to group</a></li>
+                    </ol>
+                </nav>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -31,21 +36,19 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">{{ $post->description }}</p>
-                    </div>
-                </div>
             </div>
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                     <div class="card-header">
-                        {{ $post->user->username }}
+                        <h4>{{ $post->title }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ $post->description }}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">{{ $post->location }}</li>
+                        <li class="list-group-item">Posted by {{ $post->user->username }}</li>
+                        <li class="list-group-item">{{ $post->created_at }}</li>
                     </ul>
                 </div>
             </div>

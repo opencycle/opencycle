@@ -75,7 +75,11 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+        $group = $post->group;
+        $region = $post->group->region;
+        $country = $post->group->region->country;
+
+        return view('posts.show', compact('post', 'group', 'region', 'country'));
     }
 
     /**
