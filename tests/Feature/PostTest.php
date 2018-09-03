@@ -20,6 +20,7 @@ class PostTest extends TestCase
 
         $newData = [
             'title' => $this->faker->userName,
+            'location' => $this->faker->city,
             'group' => $group->id,
             'description' => $this->faker->email,
         ];

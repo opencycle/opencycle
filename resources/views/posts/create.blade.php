@@ -1,36 +1,68 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('posts.store') }}" method="POST">
-        @csrf
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Create a new post</div>
+                    <div class="card-body">
+                        <form action="{{ route('posts.store') }}" method="POST">
+                            @csrf
 
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Title:</strong>
-                    <input type="text" name="title" class="form-control" placeholder="Title">
+                            <div class="form-group">
+                                <label for="title">{{ __('Title') }}</label>
+                                <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" id="title" placeholder="Post title" value="{{ old('title') }}" required autofocus>
+                                @if ($errors->has('title'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('title') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location">{{ __('Location') }}</label>
+                                <input type="text" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="location" id="location" placeholder="Item location" value="{{ old('location') }}" required>
+                                @if ($errors->has('location'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('location') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="group">{{ __('Group') }}</label>
+                                <select class="form-control" name="group">
+                                    @foreach ($groups as $group)
+                                        <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('$group'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('$group') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">{{ __('Description') }}</label>
+                                <textarea class="form-control" style="height:150px" name="description" placeholder="Description of the item"></textarea>
+                                @if ($errors->has('description'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Group:</strong>
-                    <select class="form-control" name="group">
-                        @foreach ($groups as $group)
-                            <option value="{{ $group->id }}">{{ $group->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Description:</strong>
-                    <textarea class="form-control" style="height:150px" name="description" placeholder="Description"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-
-    </form>
+    </div>
 @endsection
