@@ -40,15 +40,23 @@
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                     <div class="card-header">
-                        <h4>{{ $post->title }}</h4>
+                        <h4 class="m-0">{{ $post->title }}</h4>
                     </div>
                     <div class="card-body">
                         <p class="card-text">{{ $post->description }}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{ $post->location }}</li>
+                        <li class="list-group-item">Post ID: #{{ $post->id }}</li>
+                        <li class="list-group-item">Location: {{ $post->location }}</li>
                         <li class="list-group-item">Posted by {{ $post->user->username }}</li>
-                        <li class="list-group-item">{{ $post->created_at }}</li>
+                        <li class="list-group-item">Date: {{ $post->created_at }}</li>
+                        <li class="list-group-item">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-primary" role="button">Reply</a>
+                                <a href="#" class="btn btn-sm btn-outline-primary" role="button">Report</a>
+                                <a href="#" class="btn btn-sm btn-outline-primary" role="button">Share</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
