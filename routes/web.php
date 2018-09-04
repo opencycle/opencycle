@@ -49,4 +49,5 @@ Route::get('{country}/{region}', 'RegionController@show')->name('regions.show');
 
 // Groups
 Route::get('groups/user', 'GroupController@user')->name('groups.user');
+Route::patch('groups/{group}/join', 'GroupController@join')->name('groups.join');
 Route::get('{country}/{region}/{group}', 'GroupController@show')->name('groups.show');

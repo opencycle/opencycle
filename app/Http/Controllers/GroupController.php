@@ -2,6 +2,7 @@
 
 namespace Opencycle\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Opencycle\Country;
 use Opencycle\Group;
 use Opencycle\Region;
@@ -47,6 +48,6 @@ class GroupController extends Controller
         $user = Auth::user();
         $user->groups()->attach($group);
 
-        return redirect()->route('groups.show', $group)->with('success', 'You have joined this group');
+        return redirect()->back()->with('success', 'You have joined this group');
     }
 }

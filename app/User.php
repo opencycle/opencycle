@@ -39,6 +39,17 @@ class User extends Authenticatable
     }
 
     /**
+     * Check if this user is a member of this Group.
+     *
+     * @param Group $group
+     * @return bool
+     */
+    public function isMemberOf(Group $group): bool
+    {
+        return $this->groups->contains($group);
+    }
+
+    /**
      * The Role this User belongs to.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
