@@ -41,12 +41,20 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                        {{ __('My Profile') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('posts.user') }}">
+                                        {{ __('My Posts') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('posts.user') }}">
+                                        {{ __('My Posts') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('posts.create') }}">
                                         {{ __('Create Post') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

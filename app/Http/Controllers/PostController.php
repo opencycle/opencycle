@@ -2,6 +2,7 @@
 
 namespace Opencycle\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Opencycle\Group;
 use Opencycle\Post;
 use Opencycle\Events\PostCreated;
@@ -30,7 +31,7 @@ class PostController extends Controller
     public function user()
     {
         $user = Auth::user();
-        $posts = $user->posts->paginate(5);
+        $posts = $user->posts()->paginate(5);
 
         return view('posts.index', compact('posts'));
     }

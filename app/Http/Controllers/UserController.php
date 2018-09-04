@@ -73,7 +73,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \Opencycle\User  $user
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -85,7 +85,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param UpdateUserRequest $request
-     * @param  \Opencycle\User $user
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateUserRequest $request, User $user)
@@ -93,5 +93,25 @@ class UserController extends Controller
         $user->update($request->all());
 
         return redirect()->route('users.show', $user)->with('success', 'Edited user');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param User $user
+     * @return \Illuminate\Http\Response
+     * @throws \Exception
+     */
+    public function destroy(User $user)
+    {
+        $authUser = Auth::user();
+
+        if ($authUser->can('delete', $user)) {
+            $user->delete();
+        }
+
+        Auth::logout();
+
+        return redirect()->route('home')->with('success', 'Account deleted');
     }
 }

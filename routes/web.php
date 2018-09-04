@@ -12,6 +12,7 @@
 */
 
 // Posts
+Route::get('posts/user', 'PostController@user')->name('posts.user');
 Route::resource('posts', 'PostController')->except([
     'index'
 ]);
@@ -21,7 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('profile', 'UserController@profile')->name('profile');
 });
 Route::resource('users', 'UserController')->except([
-    'index', 'destroy'
+    'index'
 ]);
 
 // Login
@@ -47,4 +48,5 @@ Route::get('{country}', 'CountryController@show')->name('countries.show');
 Route::get('{country}/{region}', 'RegionController@show')->name('regions.show');
 
 // Groups
+Route::get('groups/user', 'GroupController@user')->name('groups.user');
 Route::get('{country}/{region}/{group}', 'GroupController@show')->name('groups.show');
