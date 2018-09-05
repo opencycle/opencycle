@@ -14,7 +14,7 @@ class Membership extends Pivot
      */
     public function hasRole(Role $role): bool
     {
-        return $this->role->is($role);
+        return $this->role ? $this->role->is($role) : false;
     }
 
     /**

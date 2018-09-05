@@ -50,7 +50,7 @@ class User extends Authenticatable
     }
 
     /**
-     * The Role this User belongs to.
+     * The global Role this User has.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -60,7 +60,7 @@ class User extends Authenticatable
     }
 
     /**
-     * This users posts.
+     * This Users Posts.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -70,10 +70,13 @@ class User extends Authenticatable
     }
 
     /**
-     * The groups that this user belongs to.
+     * The Groups that this User belongs to.
      */
     public function groups()
     {
-        return $this->belongsToMany(Group::class, 'membership')->as('membership')->withPivot('role_id')->using(Membership::class);
+        return $this->belongsToMany(Group::class, 'memberships')
+            ->as('membership')
+            ->withPivot('role_id')
+            ->using(Membership::class);
     }
 }

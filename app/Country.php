@@ -17,7 +17,7 @@ class Country extends Model
     }
 
     /**
-     * This countries regions.
+     * This Countries Regions.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

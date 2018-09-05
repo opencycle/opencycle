@@ -44,7 +44,7 @@ class Group extends Model
     }
 
     /**
-     * This groups posts.
+     * This Groups Posts.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -54,10 +54,13 @@ class Group extends Model
     }
 
     /**
-     * The users that belong to the group.
+     * The Users that belong to this Group.
      */
     public function users()
     {
-        return $this->belongsToMany(User::class, 'membership')->as('membership')->withPivot('role_id')->using(Membership::class);
+        return $this->belongsToMany(User::class, 'memberships')
+            ->as('membership')
+            ->withPivot('role_id')
+            ->using(Membership::class);
     }
 }

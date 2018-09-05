@@ -34,7 +34,7 @@ class Region extends Model
     }
 
     /**
-     * The Country this region is in.
+     * The Country this Region is in.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -44,7 +44,7 @@ class Region extends Model
     }
 
     /**
-     * This regions groups.
+     * This Regions Groups.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

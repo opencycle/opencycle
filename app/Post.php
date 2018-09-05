@@ -43,7 +43,7 @@ class Post extends Model
     }
 
     /**
-     * The User who posted this post.
+     * The User who posted this Post.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -53,7 +53,7 @@ class Post extends Model
     }
 
     /**
-     * The Group this post belongs to.
+     * The Group this Post belongs to.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
