@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use Opencycle\Group;
 use Opencycle\Post;
 use Opencycle\Region;
+use Opencycle\User;
+use Opencycle\Role;
 
 class DevelopmentSeeder extends Seeder
 {
@@ -20,6 +22,11 @@ class DevelopmentSeeder extends Seeder
             ])->each(function ($group) {
                 factory(Post::class, 10)->create([
                     'group_id' => $group->id,
+                    'user_id' => function () use ($group) {
+                        $user = factory(User::class)->create();
+                        $user->groups()->save($group, ['role_id' => Role::inRandomOrder()->first()->id]); // TODO: Seed null values as well
+                        return $user->id;
+                    },
                 ]);
             });
         });

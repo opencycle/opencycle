@@ -11,8 +11,5 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => Hash::make(str_random(10)),
         'remember_token' => str_random(10),
-        'role_id' => function () {
-            return Role::inRandomOrder()->first()->id;
-        }
     ];
 });

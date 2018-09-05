@@ -19,9 +19,5 @@ class RolesTableSeeder extends Seeder
         factory(Role::class)->create([
             'name' => 'moderator',
         ]);
-
-        factory(Role::class)->create([
-            'name' => 'user',
-        ]);
     }
 }

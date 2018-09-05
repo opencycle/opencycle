@@ -2,6 +2,7 @@
 
 namespace Opencycle\Policies;
 
+use Opencycle\Group;
 use Opencycle\User;
 use Opencycle\Post;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -9,6 +10,18 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 class PostPolicy
 {
     use HandlesAuthorization;
+
+    /**
+     * Determine whether the user can create tests.
+     *
+     * @param User $user
+     * @param Group $group
+     * @return mixed
+     */
+    public function create(User $user, Group $group)
+    {
+        return $user->isMemberOf($group);
+    }
 
     /**
      * Determine whether the user can update the post.

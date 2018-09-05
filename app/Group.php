@@ -58,6 +58,6 @@ class Group extends Model
      */
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_group');
+        return $this->belongsToMany(User::class, 'membership')->as('membership')->withPivot('role_id')->using(Membership::class);
     }
 }
