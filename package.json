@@ -11,10 +11,14 @@
         "postinstall": "npm run production"
     },
     "devDependencies": {
-        "axios": "^0.18",
         "bootstrap": "^4.0.0",
         "cross-env": "^5.1",
-        "laravel-mix": "^2.0",
-        "lodash": "^4.17.4"
+        "laravel-mix": "^2.0"
+    },
+    "dependencies": {
+        "@uppy/core": "^0.27.1",
+        "@uppy/dashboard": "^0.27.3",
+        "@uppy/xhr-upload": "^0.27.2",
+        "bootstrap.native": "^2.0.23"
     }
 }
