@@ -50,8 +50,6 @@
             @endif
         </div>
 
-        <button class="btn" id="select-files">Upload images</button>
-
         <div class="form-group row">
             <div class="col-sm-10">
                 <button type="submit" class="btn btn-primary">Submit</button>

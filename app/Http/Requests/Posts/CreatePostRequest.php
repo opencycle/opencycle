@@ -3,6 +3,8 @@
 namespace Opencycle\Http\Requests\Posts;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Opencycle\Group;
+use Opencycle\Post;
 
 class CreatePostRequest extends FormRequest
 {
@@ -13,7 +15,9 @@ class CreatePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        $group = Group::find($this->group);
+
+        return $this->user()->can('create', [Post::class, $group]);
     }
 
     /**

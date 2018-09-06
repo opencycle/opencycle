@@ -26,8 +26,8 @@ class PostPolicy
     /**
      * Determine whether the user can update the post.
      *
-     * @param  \Opencycle\User  $user
-     * @param  \Opencycle\Post  $post
+     * @param User $user
+     * @param Post $post
      * @return mixed
      */
     public function update(User $user, Post $post)
@@ -38,8 +38,8 @@ class PostPolicy
     /**
      * Determine whether the user can delete the post.
      *
-     * @param  \Opencycle\User  $user
-     * @param  \Opencycle\Post  $post
+     * @param User $user
+     * @param Post $post
      * @return mixed
      */
     public function delete(User $user, Post $post)
