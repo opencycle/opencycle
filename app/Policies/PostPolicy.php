@@ -12,7 +12,7 @@ class PostPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can create tests.
+     * Determine whether the user can create posts.
      *
      * @param User $user
      * @param Group $group

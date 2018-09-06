@@ -32,7 +32,7 @@ class GroupController extends Controller
     public function user()
     {
         $user = Auth::user();
-        $groups = $user->groups()->paginate(5);
+        $groups = $user->groups()->get();
 
         return view('groups.index', compact('groups'));
     }
@@ -49,5 +49,30 @@ class GroupController extends Controller
         $user->groups()->attach($group);
 
         return redirect()->back()->with('success', 'You have joined this group');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Group $group
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Group $group)
+    {
+        return view('groups.edit', compact('group'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param UpdateGroupRequest $request
+     * @param Group $group
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateGroupRequest $request, Group $group)
+    {
+        $group->update($request->all());
+
+        return redirect()->route('groups.index')->with('success', 'Edited group');
     }
 }
