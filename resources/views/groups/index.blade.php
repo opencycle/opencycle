@@ -2,14 +2,33 @@
 
 @section('content')
     <div class="container">
-        <ul class="list-group">
-            @foreach ($groups as $group)
-                <a class="list-group-item list-group-item-action" href="{{ route('groups.show', [$group->region->country, $group->region, $group]) }}">
-                    {{ $group->name }}
-                </a>
-            @endforeach
-        </ul>
-
-        {{ $groups->links() }}
+        <div class="card">
+            <div class="card-header">
+                My Groups
+            </div>
+            <ul class="list-group list-group-flush">
+                @foreach ($groups as $group)
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ $group->name }}
+                        <span class="float-right">
+                        <a class="btn btn-sm btn-outline-primary" href="{{ route('groups.show', [$group->region->country, $group->region, $group]) }}">
+                            View
+                        </a>
+                        <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.create', $group) }}">
+                            New Post
+                        </a>
+                        <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.create', $group) }}">
+                            My Settings
+                        </a>
+                        @can('update', $group)
+                            <a class="btn btn-sm btn-outline-primary" href="{{ route('groups.edit', $group) }}">
+                                Admin
+                            </a>
+                        @endcan
+                    </span>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
     </div>
 @endsection
