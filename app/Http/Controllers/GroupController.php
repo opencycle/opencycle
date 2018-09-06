@@ -5,6 +5,7 @@ namespace Opencycle\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Opencycle\Country;
 use Opencycle\Group;
+use Opencycle\Http\Requests\Groups\UpdateGroupRequest;
 use Opencycle\Region;
 
 class GroupController extends Controller
@@ -73,6 +74,6 @@ class GroupController extends Controller
     {
         $group->update($request->all());
 
-        return redirect()->route('groups.index')->with('success', 'Edited group');
+        return redirect()->route('groups.edit', $group)->with('success', 'Edited group');
     }
 }
