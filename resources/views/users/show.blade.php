@@ -10,8 +10,8 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Username: {{ $user->username }}</li>
                         <li class="list-group-item">Email: {{ $user->email }}</li>
-                        <li class="list-group-item">Posts: <a href="#">{{ $user->posts->count() }}</a></li>
-                        <li class="list-group-item">Groups: <a href="#">{{ $user->groups->count() }}</a></li>
+                        <li class="list-group-item">Posts: <a href="{{ route('posts.user') }}">{{ $user->posts->count() }}</a></li>
+                        <li class="list-group-item">Groups: <a href="{{ route('groups.user') }}">{{ $user->groups->count() }}</a></li>
                         <li class="list-group-item">
                             <div class="btn-group">
                                 <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-outline-primary" role="button">Update your details</a>

@@ -32,9 +32,9 @@ class GroupController extends Controller
     public function user()
     {
         $user = Auth::user();
-        $groups = $user->groups->paginate(5);
+        $groups = $user->groups()->paginate(5);
 
-        return view('posts.index', compact('posts', 'groups'));
+        return view('groups.index', compact('groups'));
     }
 
     /**

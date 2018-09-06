@@ -18,16 +18,25 @@
             <div class="card-body">
                 <p class="card-text">{{ $group->description }}</p>
 
-                @if(Auth::check() && !Auth::user()->isMemberOf($group))
-                    <a href="{{ route('groups.join', $group) }}" class="btn btn-secondary"
-                       onclick="event.preventDefault(); document.getElementById('join-form').submit();">
-                        Join this group
-                    </a>
-                    <form id="join-form" action="{{ route('groups.join', $group) }}" method="POST" style="display: none;">
-                        @csrf
-                        @method('PATCH')
-                    </form>
-                @endif
+                @auth
+                    @if(Auth::user()->isMemberOf($group))
+                        <a href="{{ route('posts.create', $group) }}" class="btn btn-primary">
+                            Create a new post
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            Contact the mods
+                        </a>
+                    @else
+                        <a href="{{ route('groups.join', $group) }}" class="btn btn-secondary"
+                           onclick="event.preventDefault(); document.getElementById('join-form').submit();">
+                            Join this group
+                        </a>
+                        <form id="join-form" action="{{ route('groups.join', $group) }}" method="POST" style="display: none;">
+                            @csrf
+                            @method('PATCH')
+                        </form>
+                    @endif
+                @endauth
             </div>
         </div>
 

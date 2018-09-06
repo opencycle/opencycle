@@ -47,8 +47,8 @@
                                     <a class="dropdown-item" href="{{ route('posts.user') }}">
                                         {{ __('My Posts') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('posts.user') }}">
-                                        {{ __('My Posts') }}
+                                    <a class="dropdown-item" href="{{ route('groups.user') }}">
+                                        {{ __('My Groups') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('posts.create') }}">
                                         {{ __('Create Post') }}
