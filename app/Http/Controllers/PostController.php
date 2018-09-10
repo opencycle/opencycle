@@ -43,7 +43,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $groups = Group::all();
+        $groups = Auth::user()->groups()->get();
 
         return view('posts.create', compact('groups'));
     }
@@ -105,7 +105,7 @@ class PostController extends Controller
     {
         $post->update($request->all());
 
-        return redirect()->route('posts.index')->with('success', 'Edited post');
+        return redirect()->route('posts.show', $post)->with('success', 'Edited post');
     }
 
     /**

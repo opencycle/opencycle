@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-3">
     <div class="card mb-4 box-shadow">
         <a href="{{ route('posts.show', $post) }}">
             <img class="card-img-top" alt="Thumbnail" src="https://placeimg.com/350/350/any">

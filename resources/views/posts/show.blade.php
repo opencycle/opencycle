@@ -51,9 +51,22 @@
                         <li class="list-group-item">Date: {{ $post->created_at }}</li>
                         <li class="list-group-item">
                             <div class="btn-group">
-                                <a href="#" class="btn btn-sm btn-outline-primary" role="button">Reply</a>
+                                <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.show', $post) }}">Reply</a>
                                 <a href="#" class="btn btn-sm btn-outline-primary" role="button">Report</a>
                                 <a href="#" class="btn btn-sm btn-outline-primary" role="button">Share</a>
+                                @can('update', $post)
+                                    <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.edit', $post) }}">
+                                        Edit
+                                    </a>
+                                @endcan
+                                @can('delete', $post)
+                                    <a href="{{ route('posts.destroy', $post) }}"
+                                       onclick="event.preventDefault(); document.getElementById('delete-form-{{ $post->id }}').submit();" class="btn btn-sm btn-outline-danger" role="button">Delete</a>
+                                    <form id="delete-form-{{ $post->id }}" action="{{ route('posts.destroy', $post) }}" method="POST" style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                @endcan
                             </div>
                         </li>
                     </ul>
