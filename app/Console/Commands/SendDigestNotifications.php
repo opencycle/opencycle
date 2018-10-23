@@ -4,7 +4,7 @@ namespace Opencycle\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class SendPostDigestEmailNotifications extends Command
+class SendDigestNotifications extends Command
 {
     /**
      * The name and signature of the console command.

@@ -5,11 +5,12 @@
 
 An open source free classified ads platform.
 
-## Server Requirements
+## Requirements
 
 Opencycle is written in [Laravel](https://laravel.com/docs/5.6/installation#server-requirements) 5.6 so the requirements are the same:
 
 * PHP >= 7.1.3
+* Composer
 
 ## Installation
 
@@ -49,35 +50,17 @@ To set up the daily digest emails you will need to install a crontab entry:
 * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
 ```
 
-## Development
-
-Remember to set the `APP_ENV` in your `.env` file to `local` and optionally set `APP_DEBUG` to `true` to enable error reporting.
-
-#### Dummy data
-
-You can seed dummy data for local development by running the development seeder:
-
-```bash
-$ php artisan db:seed --class=DevelopmentSeeder
-```
-
-#### Testing
-
-Tests are run with [PHPUnit](https://phpunit.de/)
-
-```bash
-$ ./vendor/bin/phpunit
-```
-
-#### Linting
-
-Code must adhere to the [PSR-2](https://www.php-fig.org/psr/psr-2/) coding style. You can lint the project
-with [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) to ensure compliance.
-
-```bash
-$ ./vendor/bin/phpcs --standard=PSR2 ./app
-```
-
-#### Contributing
+## Contributing
 
 Please see [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## TODO
+
+ For v0.1.0:
+ 
+ * Image upload
+ * Reply to posts
+ * Report a post
+ * Group settings
+ 
+https://github.com/rashidlaasri/LaravelInstaller
