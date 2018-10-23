@@ -1,0 +1,12 @@
+version: '2'
+services:
+  app:
+    build: ./
+    volumes:
+      - ./:/var/www
+  nginx:
+    build: ./deploy/nginx
+    volumes:
+      - ./:/var/www
+    ports:
+      - "8090:80"

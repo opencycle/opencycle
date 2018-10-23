@@ -44,6 +44,8 @@ class Install extends Command
                 '--force' => true,
             ]);
 
+            $this->call('storage:link');
+
             $this->info('Now we need to set up your database');
 
             $this->installDatabase();

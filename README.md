@@ -7,52 +7,44 @@ An open source free classified ads platform.
 
 ## Requirements
 
-Opencycle is written in [Laravel](https://laravel.com/docs/5.6/installation#server-requirements) 5.6 so the requirements are the same:
+Opencycle is written in [Laravel](https://laravel.com/docs/5.7/installation#server-requirements) 5.7 so the requirements are the same:
 
 * PHP >= 7.1.3
 * Composer
+* Database (eg: MySQL, PostgreSQL, SQLite)
 
 ## Installation
 
-Either git clone the repository:
+The easiest way to install and configure Opencycle is with Git and the built in installer.
 
 ```bash
 $ git clone git@github.com:opencycle/opencycle.git .
-```
-
-Or download and extract the latest package from the [releases](https://github.com/opencycle/opencycle/releases) page.
-
-Then you will need to install and run [Composer](https://getcomposer.org/) to install the dependencies:
-
-```bash
 $ composer install
+$ php artisan opencycle:install
 ```
 
-## Configuration
-
-First you will need to generate an application key:
-
-```bash
-$ php artisan key:generate
-```
-
-Then copy `.env.example` to `.env` and modify the values for your setup.
-
-Finally you need to seed your database with required initial data:
-
-```bash
-$ php artisan db:seed
-```
-
-To set up the daily digest emails you will need to install a crontab entry:
-
-```bash
-* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
-```
+For more information and other methods please see [INSTALLATION.md](INSTALLATION.md)
 
 ## Contributing
 
-Please see [CONTRIBUTING.md](CONTRIBUTING.md)
+We encourage pull requests from anyone. To do so, please fork and clone this repo.
+You work should then be done on a new feature branch. Once ready please
+[submit a pull request](https://github.com/opencycle/opencycle/compare/)
+with your changes.
+
+Once Travis has passed we will try to review your request as soon as possible.
+
+Please keep in mind:
+
+* Write tests
+* Follow the PSR-2 style guide
+* Add a detailed commit message
+
+For more information please see [DEVELOPMENT.md](DEVELOPMENT.md)
+
+## License
+
+Opencycle is released under the [GPLv3 license](LICENSE)
 
 ## TODO
 
