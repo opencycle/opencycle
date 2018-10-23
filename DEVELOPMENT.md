@@ -33,6 +33,7 @@ It is possible to run Opencycle locally with Docker.
 
 ```bash
 $ docker-compose up -d
+$ docker-compose run opencycle php artisan migrate
 ```
 
 This will expose a server on port `8090`

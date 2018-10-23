@@ -1,0 +1,26 @@
+version: '2'
+services:
+  opencycle:
+    build: ./
+    environment:
+      - "DB_HOST=database"
+      - "DB_CONNECTION=pgsql"
+      - "DB_PORT=5432"
+    volumes:
+      - ./:/var/www/html
+  nginx:
+    build: ./deploy/nginx
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8090:80"
+  database:
+    image: postgres:alpine
+    volumes:
+      - database:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_DB=opencycle"
+      - "POSTGRES_USER=homestead"
+      - "POSTGRES_PASSWORD=secret"
+volumes:
+  database:

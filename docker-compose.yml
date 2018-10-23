@@ -1,12 +1,14 @@
 version: '2'
 services:
-  app:
-    build: ./
+  opencycle:
+    image: opencycle/opencycle
     volumes:
-      - ./:/var/www
+      - app:/var/www/html
   nginx:
-    build: ./deploy/nginx
+    image: opencycle/nginx
     volumes:
-      - ./:/var/www
+      - app:/var/www/html
     ports:
-      - "8090:80"
+      - "80:80"
+volumes:
+  app:
