@@ -8,8 +8,6 @@
 
     <title>{{ config('app.name', 'Opencycle') }} - @yield('title')</title>
 
-    <script src="{{ mix('js/app.js') }}"></script>
-
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
@@ -30,5 +28,7 @@
             </div>
         </footer>
     </div>
+
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

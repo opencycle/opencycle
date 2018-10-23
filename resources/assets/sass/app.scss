@@ -8,6 +8,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Uppy
+@import '~@uppy/core/dist/style';
+@import '~@uppy/dashboard/dist/style';
+
 // Footer
 html {
   position: relative;

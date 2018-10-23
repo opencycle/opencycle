@@ -17,7 +17,7 @@ class CreatePostRequest extends FormRequest
     {
         $group = Group::find($this->group);
 
-        return $this->user()->can('create', [Post::class, $group]);
+        return $group && $this->user()->can('create', [Post::class, $group]);
     }
 
     /**

@@ -50,6 +50,16 @@
             @endif
         </div>
 
+        <div class="form-group">
+            <label for="description">{{ __('Images') }}</label>
+            <div id="select-files"></div>
+            @if ($errors->has('images'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('images') }}</strong>
+                </span>
+            @endif
+        </div>
+
         <div class="form-group row">
             <div class="col-sm-10">
                 <button type="submit" class="btn btn-primary">Submit</button>

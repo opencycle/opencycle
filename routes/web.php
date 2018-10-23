@@ -41,6 +41,11 @@ Route::resource('groups', 'GroupController')->only([
     'edit', 'update'
 ]);
 
+// Uploads
+Route::any('/tus/{any?}', function () {
+    return app('tus-server')->serve()->send();
+})->where('any', '.*');
+
 // Countries
 Route::get('/', 'CountryController@index')->name('home');
 Route::get('{country}', 'CountryController@show')->name('countries.show');
