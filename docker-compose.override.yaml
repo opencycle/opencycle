@@ -9,7 +9,6 @@ services:
     volumes:
       - ./:/var/www/html
   nginx:
-    build: ./deploy/nginx
     volumes:
       - ./:/var/www/html
     ports:
