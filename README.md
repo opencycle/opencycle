@@ -23,7 +23,7 @@ $ composer install
 $ php artisan opencycle:install
 ```
 
-For more information and other methods please see [INSTALLATION.md](INSTALLATION.md)
+For more information and other methods please see the [Installation Instructions](https://github.com/opencycle/opencycle/wiki/Installation) on the Wiki.
 
 ## Contributing
 
@@ -40,7 +40,7 @@ Please keep in mind:
 * Follow the PSR-2 style guide
 * Add a detailed commit message
 
-For more information please see [DEVELOPMENT.md](DEVELOPMENT.md)
+For more information please see the [Development Instructions](https://github.com/opencycle/opencycle/wiki/Development) of the Wiki.
 
 ## License
 
