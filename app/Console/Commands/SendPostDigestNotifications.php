@@ -3,22 +3,23 @@
 namespace Opencycle\Console\Commands;
 
 use Illuminate\Console\Command;
+use Opencycle\Post;
 
-class SendDigestNotifications extends Command
+class SendPostDigestNotifications extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'opencycle:digests';
+    protected $signature = 'opencycle:send-digests';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Send email digest notifications to subscribed users';
+    protected $description = 'Send the daily email digest notifications to subscribed users';
 
     /**
      * Create a new command instance.

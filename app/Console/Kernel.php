@@ -5,7 +5,7 @@ namespace Opencycle\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Opencycle\Console\Commands\Install;
-use Opencycle\Console\Commands\SendDigestNotifications;
+use Opencycle\Console\Commands\SendPostDigestNotifications;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        SendDigestNotifications::class,
+        SendPostDigestNotifications::class,
         Install::class,
     ];
 
@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command(SendDigestNotifications::class)->daily();
+        $schedule->command(SendPostDigestNotifications::class)->daily();
     }
 
     /**
