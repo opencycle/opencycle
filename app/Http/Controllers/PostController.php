@@ -5,7 +5,7 @@ namespace Opencycle\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Opencycle\Group;
 use Opencycle\Http\Requests\Posts\ReplyPostRequest;
-use Opencycle\Notifications\PostReplyNotification;
+use Opencycle\Notifications\PostReply;
 use Opencycle\Post;
 use Opencycle\Events\PostCreated;
 use Opencycle\Http\Requests\Posts\CreatePostRequest;
@@ -167,7 +167,7 @@ class PostController extends Controller
      */
     public function replyStore(Post $post, ReplyPostRequest $request)
     {
-        $post->user->notify(new PostReplyNotification($post, $request->message));
+        $post->user->notify(new PostReply($post, $request->message));
 
         return redirect()->route('posts.show', $post)->with('success', 'Post reply sent');
     }

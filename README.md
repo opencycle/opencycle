@@ -69,3 +69,4 @@ Opencycle is released under the [GPLv3 license](LICENSE)
  * Social logins
  * Multi language?
  * Post expiry
+ * Queues

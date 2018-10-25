@@ -7,10 +7,9 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Auth;
-use Opencycle\Http\Requests\Posts\ReplyPostRequest;
 use Opencycle\Post;
 
-class PostReplyNotification extends Notification
+class PostReply extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -19,7 +18,7 @@ class PostReplyNotification extends Notification
      *
      * @var Post
      */
-    private $post;
+    public $post;
 
     /**
      * The message.

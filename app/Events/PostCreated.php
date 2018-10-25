@@ -15,7 +15,7 @@ class PostCreated
      *
      * @var Post
      */
-    private $post;
+    public $post;
 
     /**
      * Create a new event instance.

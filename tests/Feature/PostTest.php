@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\Notification;
-use Opencycle\Notifications\PostReplyNotification;
+use Opencycle\Notifications\PostReply;
 use Opencycle\Post;
 use Opencycle\User;
 use Tests\TestCase;
@@ -60,7 +60,7 @@ class PostTest extends TestCase
 
         Notification::assertSentTo(
             $post->user,
-            PostReplyNotification::class
+            PostReply::class
         );
     }
 }

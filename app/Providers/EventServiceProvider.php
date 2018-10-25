@@ -4,6 +4,8 @@ namespace Opencycle\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Opencycle\Events\PostCreated;
+use Opencycle\Listeners\SendNewPostNotifications;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -13,8 +15,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Opencycle\Events\Event' => [
-            'Opencycle\Listeners\EventListener',
+        PostCreated::class => [
+            SendNewPostNotifications::class,
         ],
     ];
 
