@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Anhskohbo\NoCaptcha\Facades\NoCaptcha;
 use Opencycle\User;
 use Tests\TestCase;
 
@@ -14,11 +15,16 @@ class UserTest extends TestCase
      */
     public function testUserCanRegister()
     {
+        NoCaptcha::shouldReceive('verifyResponse')
+            ->once()
+            ->andReturn(true);
+
         $this->post(route('users.store'), [
             'username' => $this->faker->userName,
             'email' => $this->faker->email,
             'password' => 'test123456',
             'password_confirmation' => 'test123456',
+            'g-recaptcha-response' => '1',
         ]);
 
         $this->assertAuthenticated();

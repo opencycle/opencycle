@@ -14,8 +14,8 @@
 
                 @if ($errors->has('username'))
                     <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('username') }}</strong>
-                </span>
+                        <strong>{{ $errors->first('username') }}</strong>
+                    </span>
                 @endif
             </div>
         </div>
@@ -28,8 +28,8 @@
 
                 @if ($errors->has('email'))
                     <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('email') }}</strong>
-                </span>
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
                 @endif
             </div>
         </div>
@@ -42,8 +42,8 @@
 
                 @if ($errors->has('password'))
                     <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('password') }}</strong>
-                </span>
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
                 @endif
             </div>
         </div>
@@ -56,6 +56,18 @@
             </div>
         </div>
 
+        <div class="form-group row">
+            <div class="col-md-6 offset-md-4">
+                {!! NoCaptcha::display() !!}
+
+                @if ($errors->has('g-recaptcha-response'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button type="submit" class="btn btn-primary">
@@ -65,3 +77,7 @@
         </div>
     </form>
 @endsection
+
+@push('scripts')
+    {!! NoCaptcha::renderJs() !!}
+@endpush
