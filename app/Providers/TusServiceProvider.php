@@ -29,7 +29,7 @@ class TusServiceProvider extends ServiceProvider
             }
 
             $server->setApiPath('/tus')
-                ->setMaxUploadSize(10000000);
+                ->setMaxUploadSize(config('opencycle.uploads.maxSize'));
 
             return $server;
         });

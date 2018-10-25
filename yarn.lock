@@ -38,6 +38,13 @@
     prettier-bytes "^1.0.4"
     resize-observer-polyfill "^1.5.0"
 
+"@uppy/form@^0.27.4":
+  version "0.27.4"
+  resolved "https://registry.yarnpkg.com/@uppy/form/-/form-0.27.4.tgz#b916e91ecec255caf314aed9879614fc6e6fe681"
+  dependencies:
+    "@uppy/utils" "0.27.1"
+    get-form-data "^2.0.0"
+
 "@uppy/informer@0.27.4":
   version "0.27.4"
   resolved "https://registry.yarnpkg.com/@uppy/informer/-/informer-0.27.4.tgz#5ef5aeff70bef006495e03ee174a6de3db50139f"
@@ -2431,6 +2438,10 @@ gaze@^1.0.0:
 get-caller-file@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.3.tgz#f978fa4c90d1dfe7ff2d6beda2a515e713bdcf4a"
+
+get-form-data@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/get-form-data/-/get-form-data-2.0.0.tgz#f211018ea617cc54678522235f0e2a9025d89411"
 
 get-stdin@^4.0.1:
   version "4.0.1"

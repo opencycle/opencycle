@@ -54,5 +54,6 @@ Opencycle is released under the [GPLv3 license](LICENSE)
  * Reply to posts
  * Report a post
  * Group settings
+ * SEO
  
 https://github.com/rashidlaasri/LaravelInstaller
