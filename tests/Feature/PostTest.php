@@ -2,7 +2,9 @@
 
 namespace Tests\Feature;
 
-use Opencycle\Group;
+use Illuminate\Support\Facades\Notification;
+use Opencycle\Notifications\PostReplyNotification;
+use Opencycle\Post;
 use Opencycle\User;
 use Tests\TestCase;
 
@@ -15,10 +17,8 @@ class PostTest extends TestCase
      */
     public function testUserCanCreatePost()
     {
-        $user = factory(User::class)->create();
-        $group = factory(Group::class)->create();
-
-        $user->groups()->save($group);
+        $user = factory(User::class)->states('withGroup')->create();
+        $group = $user->groups->first();
 
         $newData = [
             'title' => $this->faker->userName,
@@ -36,5 +36,31 @@ class PostTest extends TestCase
             'user_id' => $user->id,
             'description' =>$newData['description'],
         ]);
+    }
+
+    /**
+     * Test a user can reply to a post.
+     *
+     * @return void
+     */
+    public function testUserCanReplyToPost()
+    {
+        $user = factory(User::class)->states('withGroup')->create();
+        $post = factory(Post::class)->create([
+            'group_id' => $user->groups->first()->id,
+        ]);
+
+        $data = [
+            'message' => $this->faker->paragraph,
+        ];
+
+        Notification::fake();
+
+        $this->actingAs($user)->post(route('posts.reply.store', $post), $data);
+
+        Notification::assertSentTo(
+            $post->user,
+            PostReplyNotification::class
+        );
     }
 }
