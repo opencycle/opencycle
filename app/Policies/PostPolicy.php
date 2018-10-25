@@ -46,4 +46,16 @@ class PostPolicy
     {
         return $user->id === $post->user_id;
     }
+
+    /**
+     * Determine whether the user can reply to the post.
+     *
+     * @param User $user
+     * @param Post $post
+     * @return mixed
+     */
+    public function reply(User $user, Post $post)
+    {
+        return $user->id !== $post->user_id;
+    }
 }

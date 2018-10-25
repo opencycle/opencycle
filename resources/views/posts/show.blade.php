@@ -51,7 +51,9 @@
                         <li class="list-group-item">Date: {{ $post->created_at }}</li>
                         <li class="list-group-item">
                             <div class="btn-group">
-                                <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.show', $post) }}">Reply</a>
+                                @can('reply', $post)
+                                    <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.reply.create', $post) }}">Reply</a>
+                                @endcan
                                 <a href="#" class="btn btn-sm btn-outline-primary" role="button">Report</a>
                                 <a href="#" class="btn btn-sm btn-outline-primary" role="button">Share</a>
                                 @can('update', $post)

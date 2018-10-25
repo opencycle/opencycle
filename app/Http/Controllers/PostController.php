@@ -4,6 +4,8 @@ namespace Opencycle\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Opencycle\Group;
+use Opencycle\Http\Requests\Posts\ReplyPostRequest;
+use Opencycle\Notifications\PostReplyNotification;
 use Opencycle\Post;
 use Opencycle\Events\PostCreated;
 use Opencycle\Http\Requests\Posts\CreatePostRequest;
@@ -11,6 +13,29 @@ use Opencycle\Http\Requests\Posts\UpdatePostRequest;
 
 class PostController extends Controller
 {
+    /**
+     * PostController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Post::class, null, [
+            'except' => ['index', 'show'],
+        ]);
+    }
+
+    /**
+     * Get the map of resource methods to ability names.
+     *
+     * @return array
+     */
+    protected function resourceAbilityMap()
+    {
+        return array_merge(parent::resourceAbilityMap(), [
+            'replyCreate' => 'reply',
+            'replyStore' => 'reply'
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -120,5 +145,30 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->back()->with('success', 'Deleted post');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param Post $post
+     * @return \Illuminate\Http\Response
+     */
+    public function replyCreate(Post $post)
+    {
+        return view('posts.reply', compact('post'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Post $post
+     * @param ReplyPostRequest $request
+     * @return void
+     */
+    public function replyStore(Post $post, ReplyPostRequest $request)
+    {
+        $post->user->notify(new PostReplyNotification($post, $request->message));
+
+        return redirect()->route('posts.show', $post)->with('success', 'Post reply sent');
     }
 }

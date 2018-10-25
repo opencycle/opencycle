@@ -17,6 +17,9 @@ Route::resource('posts', 'PostController')->except([
     'index'
 ]);
 
+Route::get('posts/{post}/reply', 'PostController@replyCreate')->name('posts.reply.create');
+Route::post('posts/{post}/reply', 'PostController@replyStore')->name('posts.reply.store');
+
 // Users
 Route::get('profile', 'UserController@profile')->name('profile');
 Route::resource('users', 'UserController')->except([
