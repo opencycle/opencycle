@@ -11,6 +11,9 @@
 |
 */
 
+// Home
+Route::get('/', 'HomeController@index')->name('home');
+
 // Posts
 Route::get('posts/user', 'PostController@user')->name('posts.user');
 Route::resource('posts', 'PostController')->except([
@@ -50,7 +53,7 @@ Route::any('/tus/{any?}', function () {
 })->where('any', '.*');
 
 // Countries
-Route::get('/', 'CountryController@index')->name('home');
+Route::get('countries', 'CountryController@index')->name('countries.index');
 Route::get('{country}', 'CountryController@show')->name('countries.show');
 
 // Regions

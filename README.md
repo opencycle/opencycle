@@ -51,11 +51,11 @@ Opencycle is released under the [GPLv3 license](LICENSE)
  #### First release
  
  * General
-   * SEO
+   * SEO - social metadata, page titles
    * Error pages
    * Style emails
    * Search
-   * TOS/Privacy policy
+   * TOS/Privacy policy - cms?
    * Social logins
    * Multi language?
    * Queues
