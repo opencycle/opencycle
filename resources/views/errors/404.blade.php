@@ -1,13 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.error')
 
-@section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 text-center">
-                <h1>{{ __('Page Not Found - 404') }}</h1>
-                <p>Sorry we can't find this page.</p>
-                <a class="btn btn-primary" href="{{ route('home') }}">Go home</a>
-            </div>
-        </div>
-    </div>
-@endsection
+@section('code', '404')
+@section('title', __('Page Not Found'))
+@section('message', __('Sorry, the page you are looking for could not be found.'))
