@@ -1,8 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('home') }}">
-            <img src="nav.png" width="30" height="30" alt="{{ config('app.name', 'Opencycle') }}">
-        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,6 +11,12 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('countries.index') }}">{{ __('Groups') }}</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav mx-auto">
+                <li class="nav-item">
+                    <img src="/nav.png" width="30" height="30" alt="">
+                    <span class="navbar-brand" href="{{ route('home') }}">{{ config('app.name', 'Opencycle') }}</span>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">

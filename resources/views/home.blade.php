@@ -10,10 +10,12 @@
 
                         <form class="form-inline justify-content-center" method="POST" action="{{ route('search') }}">
                             @csrf
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="query" placeholder="Find a group near you">
-                                <div class="input-group-append">
-                                    <button class="btn btn-success" type="submit">Search</button>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="query" placeholder="Find a group near you">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-success" type="submit">Search</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>

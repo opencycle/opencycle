@@ -30,11 +30,11 @@ class DevelopmentSeeder extends Seeder
         factory(Country::class, self::COUNTRIES_TO_SEED)->create()->each(function ($country) {
             $states = $country->info->hydrateStates()->states;
 
-            if (!empty($states)) {
+            if ($states->count() > 0) {
                 $states->shuffle()->take(5)->each(function ($state) use ($country) {
-                    $cities = $country->info->hydrateCities()->cities->where('adm1name', $state->name);
+                    $cities = $country->info->hydrateCities()->cities->where('adm1name', $state->extra->woe_name)->take(5);
 
-                    if (!empty($cities)) {
+                    if ($cities->count() > 0) {
                         $region = factory(Region::class)->create([
                             'name' => $state->name,
                             'country_id' => $country->id,
