@@ -11,6 +11,7 @@
         "cviebrock/eloquent-sluggable": "^4.5",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
+        "laravel/scout": "^6.0",
         "laravel/tinker": "^1.0",
         "pragmarx/countries-laravel": "^0.6.2"
     },

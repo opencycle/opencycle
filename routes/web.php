@@ -56,6 +56,9 @@ Route::any('/tus/{any?}', function () {
 Route::get('/pragmarx/countries/flag/file/{cca3}.svg', '\PragmaRX\CountriesLaravel\Package\Http\Controllers\Flag@file')
     ->name('countries.flag.file');
 
+// Search
+Route::post('search', 'SearchController@search')->name('search');
+
 // Countries
 Route::get('browse', 'CountryController@index')->name('countries.index');
 Route::get('{country}', 'CountryController@show')->name('countries.show');

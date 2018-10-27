@@ -4,10 +4,12 @@ namespace Opencycle;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Group extends Model
 {
-    use Sluggable;
+    use Sluggable,
+        Searchable;
 
     /**
      * The attributes that are mass assignable.
