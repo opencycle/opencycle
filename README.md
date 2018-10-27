@@ -46,27 +46,41 @@ For more information please see the [Development Instructions](https://github.co
 
 Opencycle is released under the [GPLv3 license](LICENSE)
 
-## TODO
+## Feature Roadmap
 
- For v0.1.0:
+ #### First release
  
- * Image upload
- * Reply to posts
- * Report a post
- * Group settings
- * SEO
- * Alerts
- * Error pages
- * Style emails
- * Search
- * Create a group
- * Post types
- * Member count on group page
- * Group files and links?
- * Web installer? - https://github.com/rashidlaasri/LaravelInstaller
- * Captcha
- * TOS/Privacy policy
- * Social logins
- * Multi language?
- * Post expiry
- * Queues
+ * General
+   * SEO
+   * Error pages
+   * Style emails
+   * Search
+   * TOS/Privacy policy
+   * Social logins
+   * Multi language?
+   * Queues
+ * Groups
+   * Member count on group page
+   * Group files and links?
+   * User group settings
+   * Create a group
+ * Posts
+   * Post types, wanted/offered
+   * Image uploads
+   * Report a post
+   * Post expiry and post/image deletion
+ * Admin/moderation area
+   * Post approval
+   * Member approval
+   * Group approval
+   * Group timezone
+   * Group description WYSIWYG editor
+   * Hotwords to force post moderation
+
+#### Phase 2
+
+ * Moderator email address
+ * Invite users to group
+ * Admin posts
+ * Web installer - https://github.com/rashidlaasri/LaravelInstaller
+
