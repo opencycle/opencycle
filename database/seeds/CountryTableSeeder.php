@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Opencycle\Country;
+use PragmaRX\CountriesLaravel\Package\Facade as Countries;
 
 class CountryTableSeeder extends Seeder
 {
@@ -12,9 +13,11 @@ class CountryTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Country::class)->create([
-            'name' => 'United Kingdom',
-            'code' => 'UK',
-        ]);
+        Countries::random(10)->each(function ($country) {
+            factory(Country::class)->create([
+                'name' => $country->name->common,
+                'code' => $country->cca3,
+            ]);
+        });
     }
 }

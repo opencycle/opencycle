@@ -12,11 +12,11 @@
 @import '~@uppy/core/dist/style';
 @import '~@uppy/dashboard/dist/style';
 
-// Footer
 html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   margin-bottom: 60px;
 }
@@ -29,4 +29,9 @@ body {
   line-height: 60px;
   background-color: #f5f5f5;
   text-align: center;
+}
+
+.flag-img {
+  width: 1.3rem;
+  margin-right: 10px;
 }

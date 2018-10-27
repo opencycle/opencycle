@@ -52,8 +52,12 @@ Route::any('/tus/{any?}', function () {
     return app('tus-server')->serve()->send();
 })->where('any', '.*');
 
+// Flag images
+Route::get('/pragmarx/countries/flag/file/{cca3}.svg', '\PragmaRX\CountriesLaravel\Package\Http\Controllers\Flag@file')
+    ->name('countries.flag.file');
+
 // Countries
-Route::get('countries', 'CountryController@index')->name('countries.index');
+Route::get('browse', 'CountryController@index')->name('countries.index');
 Route::get('{country}', 'CountryController@show')->name('countries.show');
 
 // Regions
