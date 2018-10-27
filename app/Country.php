@@ -3,6 +3,7 @@
 namespace Opencycle;
 
 use Illuminate\Database\Eloquent\Model;
+use PragmaRX\CountriesLaravel\Package\Facade as Countries;
 
 class Country extends Model
 {
@@ -24,5 +25,15 @@ class Country extends Model
     public function regions()
     {
         return $this->hasMany(Region::class);
+    }
+
+    /**
+     * Get info about this country.
+     *
+     * @return mixed
+     */
+    public function getInfoAttribute()
+    {
+        return Countries::where('cca3', $this->code)->first();
     }
 }

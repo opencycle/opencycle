@@ -4,6 +4,7 @@ use Faker\Generator as Faker;
 use Opencycle\Post;
 use Opencycle\User;
 use Opencycle\Group;
+use Opencycle\Role;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
@@ -17,4 +18,8 @@ $factory->define(Post::class, function (Faker $faker) {
             return factory(Group::class)->create()->id;
         }
     ];
+});
+
+$factory->afterCreating(Post::class, function ($post, $faker) {
+    $post->user->groups()->save($post->group, ['role_id' => Role::inRandomOrder()->first()->id]); // TODO: Seed null values as well
 });

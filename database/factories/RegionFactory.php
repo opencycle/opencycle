@@ -2,12 +2,13 @@
 
 use Faker\Generator as Faker;
 use Opencycle\Country;
+use Opencycle\Region;
 
-$factory->define(Opencycle\Region::class, function (Faker $faker) {
+$factory->define(Region::class, function (Faker $faker) {
     return [
         'name' => $faker->state,
         'country_id' => function () {
-            return Country::inRandomOrder()->first()->id;
+            return factory(Country::class)->create()->id;
         }
     ];
 });

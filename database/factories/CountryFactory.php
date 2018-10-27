@@ -1,10 +1,13 @@
 <?php
 
 use Faker\Generator as Faker;
+use Opencycle\Country;
 
-$factory->define(Opencycle\Country::class, function (Faker $faker) {
+$factory->define(Country::class, function (Faker $faker) {
+    $country = Countries::random();
+
     return [
-        'name' => $faker->country,
-        'code' => $faker->countryCode,
+        'name' => $country->name->common,
+        'code' => $country->cca3,
     ];
 });
