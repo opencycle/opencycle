@@ -8,8 +8,7 @@ use Laravel\Scout\Searchable;
 
 class Group extends Model
 {
-    use Sluggable,
-        Searchable;
+    use Sluggable;
 
     /**
      * The attributes that are mass assignable.
