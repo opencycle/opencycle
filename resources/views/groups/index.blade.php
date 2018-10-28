@@ -3,9 +3,7 @@
 @section('content')
     <div class="container">
         <div class="card">
-            <div class="card-header">
-                My Groups
-            </div>
+
             <ul class="list-group list-group-flush">
                 @foreach ($groups as $group)
                     <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -14,9 +12,11 @@
                         <a class="btn btn-sm btn-outline-primary" href="{{ route('groups.show', [$group->region->country, $group->region, $group]) }}">
                             View
                         </a>
-                        <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.create', $group) }}">
-                            New Post
-                        </a>
+                        @can('create', \Opencycle\Post::class)
+                            <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.create', $group) }}">
+                                New Post
+                            </a>
+                        @endcan
                         <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.create', $group) }}">
                             My Settings
                         </a>

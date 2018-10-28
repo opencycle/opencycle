@@ -15,7 +15,7 @@ class SearchController extends Controller
      */
     public function search(SearchRequest $request)
     {
-        $groups = Group::search($request->query)->get();
+        $groups = Group::where('name', 'LIKE', '%'.$request->input('query').'%')->get();
 
         return view('groups.index', compact('groups'));
     }
