@@ -19,14 +19,15 @@
                 <p class="card-text">{{ $group->description }}</p>
 
                 @auth
+                <div class="btn-group">
                     @if(Auth::user()->isMemberOf($group))
                         <a href="{{ route('posts.create', $group) }}" class="btn btn-sm btn-outline-primary">
                             Create a new post
                         </a>
-                        <a href="#" class="btn btn-sm btn-outline-secondary">
+                        <a href="#" class="btn btn-sm btn-outline-primary">
                             Contact the mods
                         </a>
-                        <a href="{{ route('memberships.edit', $group) }}" class="btn btn-sm btn-outline-secondary">
+                        <a href="{{ route('memberships.edit', $group) }}" class="btn btn-sm btn-outline-primary">
                             Group settings
                         </a>
                         <a href="{{ route('memberships.destroy', $group) }}"
@@ -36,7 +37,7 @@
                             @method('DELETE')
                         </form>
                     @else
-                        <a href="{{ route('memberships.store', $group) }}" class="btn btn-secondary"
+                        <a href="{{ route('memberships.store', $group) }}" class="btn btn-primary"
                            onclick="event.preventDefault(); document.getElementById('join-form').submit();">
                             Join this group
                         </a>
@@ -44,6 +45,7 @@
                             @csrf
                         </form>
                     @endif
+                </div>
                 @endauth
             </div>
         </div>
@@ -69,10 +71,12 @@
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->location }}</td>
                             <td>
-                                <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.show', $post) }}">View</a>
-                                <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.show', $post) }}">
-                                    Reply
-                                </a>
+                                <div class="btn-group">
+                                    <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.show', $post) }}">View</a>
+                                    <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.show', $post) }}">
+                                        Reply
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
