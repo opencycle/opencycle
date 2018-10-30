@@ -17,23 +17,22 @@ class PostTest extends TestCase
      */
     public function testUserCanCreatePost()
     {
-        $user = factory(User::class)->states('withGroup')->create();
-        $group = $user->groups->first();
+        $post = factory(Post::class)->create();
 
         $newData = [
             'title' => $this->faker->userName,
             'location' => $this->faker->city,
-            'group' => $group->id,
+            'group' => $post->group->id,
             'description' => $this->faker->email,
         ];
 
-        $this->actingAs($user)->post(route('posts.store'), $newData);
+        $this->actingAs($post->user)->post(route('posts.store'), $newData);
 
         $this->assertDatabaseHas('posts', [
             'title' => $newData['title'],
             'location' => $newData['location'],
-            'group_id' => $group->id,
-            'user_id' => $user->id,
+            'group_id' => $post->group->id,
+            'user_id' => $post->user->id,
             'description' =>$newData['description'],
         ]);
     }
@@ -62,5 +61,48 @@ class PostTest extends TestCase
             $post->user,
             PostReply::class
         );
+    }
+
+    /**
+     * Test a user can update an existing post.
+     *
+     * @return void
+     */
+    public function testUserCanEditPost()
+    {
+        $post = factory(Post::class)->create();
+
+        $newData = [
+            'title' => $this->faker->userName,
+            'location' => $this->faker->city,
+            'description' => $this->faker->email,
+        ];
+
+        $this->actingAs($post->user)->patchJson(route('posts.update', $post), $newData);
+
+        $this->assertDatabaseHas('posts', [
+            'id' => $post->id,
+            'title' => $newData['title'],
+            'location' => $newData['location'],
+            'group_id' => $post->group->id,
+            'user_id' => $post->user->id,
+            'description' =>$newData['description'],
+        ]);
+    }
+
+    /**
+     * Test a user can delete an existing post.
+     *
+     * @return void
+     */
+    public function testUserCanDeletePost()
+    {
+        $post = factory(Post::class)->create();
+
+        $this->actingAs($post->user)->deleteJson(route('posts.destroy', $post));
+
+        $this->assertDatabaseMissing('posts', [
+            'id' => $post->id,
+        ]);
     }
 }

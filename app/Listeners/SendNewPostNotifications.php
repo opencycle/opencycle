@@ -3,9 +3,8 @@
 namespace Opencycle\Listeners;
 
 use Opencycle\Events\PostCreated;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Opencycle\Notifications\NewPost;
+use Opencycle\User;
 
 class SendNewPostNotifications
 {

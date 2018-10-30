@@ -32,7 +32,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->id === $post->user_id;
+        return $user->id === $post->user->id;
     }
 
     /**
@@ -44,7 +44,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return $user->id === $post->user_id;
+        return $user->id === $post->user->id;
     }
 
     /**
@@ -56,6 +56,6 @@ class PostPolicy
      */
     public function reply(User $user, Post $post)
     {
-        return $user->id !== $post->user_id && $user->isMemberOf($post->group);
+        return $user->id !== $post->user->id && $user->isMemberOf($post->group);
     }
 }
