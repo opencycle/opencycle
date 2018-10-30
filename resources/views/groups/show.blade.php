@@ -40,9 +40,23 @@
             </div>
         </div>
 
-        <div class="row">
-            @each('posts.partials.post', $posts, 'post')
-        </div>
+        <table class="table table-hover">
+            <tbody>
+                @foreach($posts as $post)
+                <tr>
+                    <th scope="row">{{ $post->created_at }}</th>
+                    <td>{{ $post->title }}</td>
+                    <td>{{ $post->location }}</td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.show', $post) }}">View</a>
+                        <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.show', $post) }}">
+                            Reply
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
 
         {{ $posts->links() }}
     </div>

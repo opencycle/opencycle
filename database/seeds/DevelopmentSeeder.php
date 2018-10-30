@@ -20,7 +20,7 @@ class DevelopmentSeeder extends Seeder
     public function run()
     {
         factory(User::class)->create([
-            'email' => 'admin@opencycle.com',
+            'email' => 'admin@opencycle.org',
             'password' => bcrypt('password'),
             'role_id' => Role::where('name', 'admin')->first()->id,
         ]);

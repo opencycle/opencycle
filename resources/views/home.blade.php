@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'An open source free classified ads platform.')
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
