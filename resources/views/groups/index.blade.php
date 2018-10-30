@@ -12,13 +12,13 @@
                         <a class="btn btn-sm btn-outline-primary" href="{{ route('groups.show', [$group->region->country, $group->region, $group]) }}">
                             View
                         </a>
-                        @can('create', \Opencycle\Post::class)
+
                             <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.create', $group) }}">
                                 New Post
                             </a>
-                        @endcan
-                        <a class="btn btn-sm btn-outline-primary" href="{{ route('posts.create', $group) }}">
-                            My Settings
+
+                        <a class="btn btn-sm btn-outline-primary" href="{{ route('groups.settings', $group) }}">
+                            Settings
                         </a>
                         @can('update', $group)
                             <a class="btn btn-sm btn-outline-primary" href="{{ route('groups.edit', $group) }}">

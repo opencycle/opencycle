@@ -38,3 +38,7 @@ body {
   width: 1.3rem;
   margin-right: 10px;
 }
+
+.table-no-top-border > tbody > tr:first-child > td {
+  border-top: none;
+}

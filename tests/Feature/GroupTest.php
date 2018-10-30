@@ -15,12 +15,27 @@ class GroupTest extends TestCase
      */
     public function testUserCanJoinAGroup()
     {
-        $user = factory(User::class)->create();
-        $group = factory(Group::class)->create();
+        $user = factory(User::class)->states('withGroup')->create();
+        $group = $user->groups->first();
 
-        $this->actingAs($user)->patch(route('groups.join', $group));
+        $this->actingAs($user)->patch(route('memberships.store', $group));
 
         $this->assertEquals($user->groups->first()->id, $group->id);
         $this->assertNull($user->groups->first()->membership->role);
+    }
+
+    /**
+     * Test a user can leave a group.
+     *
+     * @return void
+     */
+    public function testUserCanLeaveAGroup()
+    {
+        $user = factory(User::class)->states('withGroup')->create();
+        $group = $user->groups->first();
+
+        $this->actingAs($user)->delete(route('memberships.destroy', $group));
+
+        $this->assertNull($user->fresh()->groups->first());
     }
 }

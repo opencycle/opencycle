@@ -40,9 +40,14 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
+// Memberships
+Route::post('groups/{group}/join', 'MembershipController@store')->name('memberships.store');
+Route::get('groups/{group}/settings', 'MembershipController@edit')->name('memberships.edit');
+Route::patch('groups/{group}/settings', 'MembershipController@update')->name('memberships.update');
+Route::delete('groups/{group}/leave', 'MembershipController@destroy')->name('memberships.destroy');
+
 // Groups
 Route::get('groups/user', 'GroupController@user')->name('groups.user');
-Route::patch('groups/{group}/join', 'GroupController@join')->name('groups.join');
 Route::resource('groups', 'GroupController')->only([
     'edit', 'update'
 ]);
