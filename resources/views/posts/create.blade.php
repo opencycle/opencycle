@@ -52,7 +52,7 @@
 
         <div class="form-group">
             <label for="description">{{ __('Images') }}</label>
-            <div id="select-files"></div>
+            <div id="image-uploader"></div>
             @if ($errors->has('images'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('images') }}</strong>
