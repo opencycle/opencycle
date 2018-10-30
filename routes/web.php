@@ -57,7 +57,7 @@ Route::get('/pragmarx/countries/flag/file/{cca3}.svg', '\PragmaRX\CountriesLarav
     ->name('countries.flag.file');
 
 // Search
-Route::post('search', 'SearchController@search')->name('search');
+Route::get('search', 'SearchController@search')->name('search');
 
 // Countries
 Route::get('browse', 'CountryController@index')->name('countries.index');
