@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
     <title>Opencycle</title>
 </head>
@@ -12,7 +13,7 @@
 <header>
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
-            <a href="#" class="navbar-brand d-flex align-items-center">
+            <a href="https://opencycle.org" class="navbar-brand d-flex align-items-center">
                 <strong>Opencycle</strong>
             </a>
         </div>
@@ -25,10 +26,10 @@
         <div class="container">
             <img src="logo.png" height="200px">
             <h1 class="jumbotron-heading">Opencycle</h1>
-            <p class="lead text-muted">An open source free classified ads platform.</p>
+            <p class="lead">An open source free classified ads platform.</p>
             <p>
-                <a href="https://github.com/opencycle/opencycle/releases" class="btn btn-primary my-2">Download now</a>
-                <a href="https://github.com/opencycle/opencycle/wiki/Installation" class="btn btn-secondary my-2">Installation instructions</a>
+                <a href="https://api.github.com/repos/opencycle/opencycle/releases/latest" class="btn btn-primary my-2">Download Latest Version</a>
+                <a href="https://demo.opencycle.org" class="btn btn-secondary my-2">Visit Demo Site</a>
             </p>
         </div>
     </section>
@@ -37,11 +38,60 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading">Installation</h2>
+                <p class="lead">There are three main methods you can use to install Opencycle</p>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="dist-tab" data-toggle="tab" href="#dist" role="tab" aria-controls="dist" aria-selected="true">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="source-tab" data-toggle="tab" href="#source" role="tab" aria-controls="source" aria-selected="false">Git</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="docker-tab" data-toggle="tab" href="#docker" role="tab" aria-controls="docker" aria-selected="false">Docker</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="dist" role="tabpanel" aria-labelledby="dist-tab">
+                        <p>Download the <a href="">latest release</a> archive from the downloads page.</p>
+                        <p>Extract the .zip file and upload all the files to your web server.</p>
+                        <p>The release contains all the vendor files and compiled assets so you can just configure your installation.</p>
+                    </div>
+                    <div class="tab-pane fade" id="source" role="tabpanel" aria-labelledby="source-tab">
+                        <p>Git clone the repository</p>
+                        <pre><code>$ git clone git@github.com:opencycle/opencycle.git .</code></pre>
+                        <p>Optionally checkout the latest release tag</p>
+                        <pre><code>$ git checkout 0.1.0</code></pre>
+                        <p>Install the vendor dependencies with Composer</p>
+                        <pre><code>$ composer install</code></pre>
+                        <p>Compile the frontend assets</p>
+                        <pre><code>$ yarn production</code></pre>
+                    </div>
+                    <div class="tab-pane fade" id="docker" role="tabpanel" aria-labelledby="docker-tab">
+                        <p>We maintain an <a href="https://hub.docker.com/r/opencycle/opencycle/">Opencycle Docker</a> image on Docker Hub</p>
+                        <p>It is based on the <code>php:7.2-fpm-alpine</code> image and exposes PHP-FPM on port 9000.</p>
+                        <p>An example <code>docker-compose.yml</code> file is provided below to serve Opencycle with NGINX on port 80.</p>
+                        <pre><code>
+version: '2'
+services:
+    opencycle:
+        image: opencycle/opencycle
+        volumes:
+            - app:/var/www/html
+    nginx:
+        image: opencycle/nginx
+        volumes:
+            - app:/var/www/html
+    ports:
+        - "80:80"
+volumes:
+    app:
+                        </code></pre>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166c69daa05%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166c69daa05%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.125%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+            <div class="col-md-5 featurette-image d-none d-md-flex">
+                <i class="fas fa-cloud-download-alt fa-10x"></i>
             </div>
         </div>
 
@@ -49,12 +99,31 @@
 
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading">Configuration</h2>
+                <p class="lead">Once you have installed Opencycle you need to configure it.</p>
+                <ul class="nav nav-tabs" id="configTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="web-tab" data-toggle="tab" href="#web" role="tab" aria-controls="dist" aria-selected="true">Web Installer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="manual-tab" data-toggle="tab" href="#manual" role="tab" aria-controls="source" aria-selected="false">Manually</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="configTabContent">
+                    <div class="tab-pane fade show active" id="web" role="tabpanel" aria-labelledby="web-tab">
+                        <p>Simply visit your installation <a href="http://youurdomain.com/install">http://youurdomain.com/install</a> and follow the instructions on to configure your installation.</p>
+                        <p>This will generate a <code>.env</code> file with your configuration.</p>
+                    </div>
+                    <div class="tab-pane fade" id="manual" role="tabpanel" aria-labelledby="manual-tab">
+                        <p>Copy the example environment file.</p>
+                        <pre><code>$ cp .env.example .env</code></pre>
+                        <p>Then edit the <code>.env</code> file with your configuration.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-5 order-md-1">
-                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166c69daa06%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166c69daa06%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.125%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 500px; height: 500px;">
-            </div>
+            <div class="col-md-5 order-md-1 featurette-image d-none d-md-flex">
+                <i class="fas fa-cogs fa-10x"></i>
+           </div>
         </div>
 
         <footer class="pt-4 my-md-5 pt-md-5 border-top">
@@ -73,10 +142,10 @@
                 <div class="col-6 col-md">
                     <h5>Resources</h5>
                     <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="#">Changelog</a></li>
+                        <li><a class="text-muted" href="https://github.com/opencycle/opencycle/commits/master">Changelog</a></li>
                         <li><a class="text-muted" href="#">Roadmap</a></li>
-                        <li><a class="text-muted" href="#">Github</a></li>
-                        <li><a class="text-muted" href="#">Issues</a></li>
+                        <li><a class="text-muted" href="https://github.com/opencycle/opencycle">Github</a></li>
+                        <li><a class="text-muted" href="https://github.com/opencycle/opencycle/issues">Issues</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md">
@@ -89,11 +158,23 @@
                 </div>
             </div>
         </footer>
+
     </div>
+
 </main>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $.getJSON('https://api.github.com/repos/opencycle/opencycle/releases').done(function (json) {
+            var release = json[0];
+            console.log(release);
+        });
+    });
+</script>
+
 </body>
 </html>

@@ -7,10 +7,9 @@
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
 .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+    margin: 5rem 0;
 }
 
-/* Thin out the marketing headings */
 .featurette-heading {
     font-weight: 300;
     line-height: 1;
@@ -25,6 +24,17 @@
 
 @media (min-width: 62em) {
     .featurette-heading {
-        margin-top: 7rem;
+        margin-top: 3rem;
     }
+}
+
+.featurette-image {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.tab-pane {
+    padding: 10px;
+    padding-top: 20px;
 }
