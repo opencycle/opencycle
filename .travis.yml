@@ -1,4 +1,7 @@
-sudo: false
+sudo: required
+
+services:
+  - docker
 
 language: php
 
@@ -9,6 +12,9 @@ php:
 cache:
   directories:
     - $HOME/.composer/cache
+
+before_install:
+  - docker build -t opencycle/opencycle .
 
 before_script:
   - composer install --prefer-dist --no-interaction
