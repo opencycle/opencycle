@@ -6,7 +6,6 @@ services:
 language: php
 
 php:
-  - 7.1
   - 7.2
 
 cache:
@@ -14,13 +13,14 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
-  - docker build -t opencycle/opencycle .
+  - docker-compose up -d
 
 before_script:
   - composer install --prefer-dist --no-interaction
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  - php artisan dusk
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

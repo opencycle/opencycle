@@ -11,8 +11,6 @@ services:
   nginx:
     volumes:
       - ./:/var/www/html
-    ports:
-      - "8090:80"
   database:
     environment:
       - "POSTGRES_DB=opencycle"
