@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
     <link href="style.css" rel="stylesheet">
 
     <title>Opencycle</title>
@@ -48,7 +49,7 @@
             <h1 class="jumbotron-heading">Opencycle</h1>
             <p class="lead">An Open Source free classified ads platform.</p>
             <p>
-                <a href="https://api.github.com/repos/opencycle/opencycle/releases/latest" class="btn btn-primary my-2">Download Latest Version</a>
+                <a href="https://api.github.com/repos/opencycle/opencycle/releases/latest" class="btn btn-primary my-2">Download Opencycle 0.1.0</a>
                 <a href="https://demo.opencycle.org" class="btn btn-secondary my-2">Visit Demo Site</a>
             </p>
         </div>
@@ -73,44 +74,30 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="dist" role="tabpanel" aria-labelledby="dist-tab">
-                        <p>Download the <a href="">latest release</a> archive from the downloads page.</p>
-                        <p>Extract the .zip file and upload all the files to your web server.</p>
-                        <p>The release contains all the vendor files and compiled assets so you can just configure your installation.</p>
+                        <p>Download the latest <a href="https://api.github.com/repos/opencycle/opencycle/releases/latest">Opencycle</a> release.</p>
+                        <p>Extract the archive and upload all the files to the webroot of your web server.</p>
+                        <p>The release contains all the vendor files and compiled assets so you can just begin to configure your installation.</p>
                     </div>
                     <div class="tab-pane fade" id="source" role="tabpanel" aria-labelledby="source-tab">
-                        <p>Git clone the repository</p>
-                        <pre><code>$ git clone git@github.com:opencycle/opencycle.git .</code></pre>
-                        <p>Optionally checkout the latest release tag</p>
-                        <pre><code>$ git checkout 0.1.0</code></pre>
-                        <p>Install the vendor dependencies with Composer</p>
-                        <pre><code>$ composer install</code></pre>
-                        <p>Compile the frontend assets</p>
-                        <pre><code>$ yarn production</code></pre>
+                        <p>You can also use Git to clone the repository and checkout a release, you will then also need to download vendor dependencies and compile the assets</p>
+                        <pre><code class="sh">$ git clone git@github.com:opencycle/opencycle.git .
+$ git checkout 0.1.0
+$ composer install
+$ yarn production</code></pre>
                     </div>
                     <div class="tab-pane fade" id="docker" role="tabpanel" aria-labelledby="docker-tab">
-                        <p>We maintain an <a href="https://hub.docker.com/r/opencycle/opencycle/">Opencycle Docker</a> image on Docker Hub</p>
-                        <p>It is based on the <code>php:7.2-fpm-alpine</code> image and exposes PHP-FPM on port 9000.</p>
-                        <p>An example <code>docker-compose.yml</code> file is provided below to serve Opencycle with NGINX on port 80.</p>
-                        <pre><code>
-version: '2'
-services:
-    opencycle:
-        image: opencycle/opencycle
-        volumes:
-            - app:/var/www/html
-    nginx:
-        image: opencycle/nginx
-        volumes:
-            - app:/var/www/html
-    ports:
-        - "80:80"
-volumes:
-    app:
-                        </code></pre>
+                        <p>We maintain an Opencycle <a href="https://hub.docker.com/r/opencycle/opencycle/">Docker image</a> on Docker Hub.</p>
+                        <pre><code class="sh">$ docker container run opencycle/opencycle:latest</code></pre>
+                        <p>
+                            It is based on the <code>php:7.2-fpm-alpine</code> image and exposes PHP-FPM on port 9000. You will need to link a web server and a database.
+                            An example <code>docker-compose.yml</code> is provided.
+                        </p>
+                        <pre><code class="sh">$ curl -sSL https://raw.githubusercontent.com/opencycle/opencycle/master/docker-compose.yml > docker-compose.yml
+$ docker-compose up -d</code></pre>
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 featurette-image d-none d-md-flex">
+            <div class="col-md-4 featurette-image d-none d-md-flex">
                 <i class="fas fa-cloud-download-alt fa-10x"></i>
             </div>
         </div>
@@ -136,7 +123,7 @@ volumes:
                     </div>
                     <div class="tab-pane fade" id="manual" role="tabpanel" aria-labelledby="manual-tab">
                         <p>Copy the example environment file.</p>
-                        <pre><code>$ cp .env.example .env</code></pre>
+                        <pre><code class="sh">$ cp .env.example .env</code></pre>
                         <p>Then edit the <code>.env</code> file with your configuration.</p>
                     </div>
                 </div>
@@ -183,12 +170,17 @@ volumes:
 
 </main>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
 
 <script language="javascript" type="text/javascript">
     $(document).ready(function () {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+
         $.getJSON('https://api.github.com/repos/opencycle/opencycle/releases').done(function (json) {
             var release = json[0];
             console.log(release);

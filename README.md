@@ -3,6 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/opencycle/opencycle.svg)](https://github.com/opencycle/opencycle/releases)
  [![Build Status](https://travis-ci.com/opencycle/opencycle.svg?branch=master)](https://travis-ci.com/opencycle/opencycle) [![codecov](https://codecov.io/gh/opencycle/opencycle/branch/master/graph/badge.svg)](https://codecov.io/gh/opencycle/opencycle) [![StyleCI](https://github.styleci.io/repos/146082121/shield?branch=master)](https://github.styleci.io/repos/146082121) 
 [![GitHub](https://img.shields.io/github/license/opencycle/opencycle.svg)](https://github.com/opencycle/opencycle/blob/master/LICENSE)
+[![](https://images.microbadger.com/badges/image/opencycle/opencycle.svg)](https://hub.docker.com/r/opencycle/opencycle/)
 
 An open source free classified ads platform.
 

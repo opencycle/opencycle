@@ -14,12 +14,7 @@ services:
     ports:
       - "8090:80"
   database:
-    image: postgres:alpine
-    volumes:
-      - database:/var/lib/postgresql/data
     environment:
       - "POSTGRES_DB=opencycle"
       - "POSTGRES_USER=homestead"
       - "POSTGRES_PASSWORD=secret"
-volumes:
-  database:

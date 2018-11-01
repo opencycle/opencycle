@@ -1,14 +1,21 @@
 version: '2'
 services:
   opencycle:
-    image: opencycle/opencycle
+    image: opencycle/opencycle:latest
     volumes:
       - app:/var/www/html
+    depends_on:
+      - database
   nginx:
     image: opencycle/nginx
     volumes:
       - app:/var/www/html
     ports:
       - "80:80"
+  database:
+    image: postgres:alpine
+    volumes:
+      - database:/var/lib/postgresql/data
 volumes:
   app:
+  database:
