@@ -10,13 +10,14 @@ php:
 
 cache:
   directories:
-    - $HOME/.composer/cache
+    - node_modules
+    - $HOME/.composer/cache/files
 
-before_install:
-  - docker-compose up -d
+install:
+  - composer install --prefer-dist --no-interaction
 
 before_script:
-  - composer install --prefer-dist --no-interaction
+  - docker-compose up -d
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
