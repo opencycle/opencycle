@@ -61,6 +61,34 @@ Route::any('/tus/{any?}', function () {
 Route::get('/pragmarx/countries/flag/file/{cca3}.svg', '\PragmaRX\CountriesLaravel\Package\Http\Controllers\Flag@file')
     ->name('countries.flag.file');
 
+// Installer
+Route::group(['prefix' => 'install'], function () {
+    Route::get('/', [
+        'as' => 'install.start',
+        'uses' => 'InstallController@start'
+    ]);
+
+    Route::get('requirements', [
+        'as' => 'install.requirements',
+        'uses' => 'InstallController@requirements'
+    ]);
+
+    Route::get('permissions', [
+        'as' => 'install.permissions',
+        'uses' => 'InstallController@permissions'
+    ]);
+
+    Route::get('environment', [
+        'as' => 'install.environment.create',
+        'uses' => 'InstallController@environmentCreate'
+    ]);
+
+    Route::post('environment', [
+        'as' => 'install.environment.store',
+        'uses' => 'InstallController@environmentStore'
+    ]);
+});
+
 // Search
 Route::get('search', 'SearchController@search')->name('search');
 
