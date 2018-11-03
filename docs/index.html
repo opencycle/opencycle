@@ -90,7 +90,7 @@ $ yarn production</code></pre>
                         <pre><code class="sh">$ docker container run opencycle/opencycle:latest</code></pre>
                         <p>
                             It is based on the <code>php:7.2-fpm-alpine</code> image and exposes PHP-FPM on port 9000. You will need to link a web server and a database.
-                            An example <code>docker-compose.yml</code> is provided.
+                            An example <code>docker-compose.yml</code> is provided to get you started.
                         </p>
                         <pre><code class="sh">$ curl -sSL https://raw.githubusercontent.com/opencycle/opencycle/master/docker-compose.yml > docker-compose.yml
 $ docker-compose up -d</code></pre>
@@ -119,12 +119,12 @@ $ docker-compose up -d</code></pre>
                 <div class="tab-content" id="configTabContent">
                     <div class="tab-pane fade show active" id="web" role="tabpanel" aria-labelledby="web-tab">
                         <p>Simply visit your installation <a href="http://youurdomain.com/install">http://youurdomain.com/install</a> and follow the instructions on to configure your installation.</p>
-                        <p>This will generate a <code>.env</code> file with your configuration.</p>
+                        <p>This will generate an <code>.env</code> file with your configuration.</p>
                     </div>
                     <div class="tab-pane fade" id="manual" role="tabpanel" aria-labelledby="manual-tab">
-                        <p>Copy the example environment file.</p>
+                        <p>If you want more control you can configure Opencycle manually. First copy the example <code>.env</code> file</p>
                         <pre><code class="sh">$ cp .env.example .env</code></pre>
-                        <p>Then edit the <code>.env</code> file with your configuration.</p>
+                        <p>Then edit the values to reflect your environment. Refer to the <a href="https://laravel.com/docs/5.7/installation#configuration">Laravel docs</a> for more info.</p>
                     </div>
                 </div>
             </div>
