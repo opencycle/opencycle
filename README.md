@@ -23,6 +23,8 @@ The easiest way to install and configure Opencycle is with Git and the built in 
 $ git clone git@github.com:opencycle/opencycle.git .
 $ composer install
 $ php artisan opencycle:install
+$ yarn install && yarn production
+$ php artisan serve
 ```
 
 For more information and other methods please see the [Installation Instructions](https://github.com/opencycle/opencycle/wiki/Installation) on the Wiki.
