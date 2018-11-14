@@ -1,16 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.install')
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-6 offset-3">
-                <div class="card">
-                    <div class="card-header">{{ __('Environment') }}</div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('install.environment.store') }}">
-                            @csrf
-
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <form method="POST" action="{{ route('install.environment.store') }}">
+            @csrf
+            <div class="row">
+                <div class="col-6 offset-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="environment-tab" data-toggle="tab" href="#environment" role="tab" aria-controls="environment" aria-selected="true">Environment</a>
                                 </li>
@@ -21,7 +19,8 @@
                                     <a class="nav-link" id="email-tab" data-toggle="tab" href="#email" role="tab" aria-controls="email" aria-selected="false">Email</a>
                                 </li>
                             </ul>
-
+                        </div>
+                        <div class="card-body">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="environment" role="tabpanel" aria-labelledby="environment-tab">
                                     <div class="form-group">
@@ -64,20 +63,17 @@
                                 <div class="tab-pane fade" id="database" role="tabpanel" aria-labelledby="database-tab">...</div>
                                 <div class="tab-pane fade" id="email" role="tabpanel" aria-labelledby="email-tab">...</div>
                             </div>
-
-
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Next') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-6 offset-3 mt-3">
+                    <button type="submit" class="btn btn-primary float-right">
+                        {{ __('Next') }}
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.install')
 
 @section('content')
     <div class="container">
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-6 offset-3 mt-3">
                 @if ($passed)
                     <a href="{{ route('install.environment.create') }}" class="btn btn-primary float-right">Next</a>
                 @endif
