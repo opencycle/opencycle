@@ -45,7 +45,7 @@ $ composer install --no-dev
 And then either [Yarn](https://yarnpkg.com/lang/en/) or [NPM](https://www.npmjs.com/get-npm) to compile the assets.
 
 ```bash
-$ yarn production
+$ yarn install && yarn production
 or
 $ npm install && npm run production
 ```
