@@ -27,10 +27,18 @@ after_success:
 jobs:
   include:
   - stage: build docker image
+    # if: branch = master
     script:
       - docker build -t opencycle/opencycle .
   - stage: package archive
+    # if: branch = master
     script:
       - composer install --prefer-dist --no-interaction --no-dev
       - yarn install
       - yarn production
+      - zip -r opencycle.zip . -x@.zipignore
+    deploy:
+      provider: releases
+      api_key: $GITHUB_OAUTH_TOKEN
+      file: opencycle.zip
+      skip_cleanup: true
