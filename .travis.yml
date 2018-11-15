@@ -13,15 +13,20 @@ cache:
     - node_modules
     - $HOME/.composer/cache/files
 
-install:
-  - composer install --prefer-dist --no-interaction
-
-before_script:
-  - docker-compose up -d
-
-script:
-  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-  - php artisan dusk
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+jobs:
+  include:
+  - stage: test
+    install:
+      - composer install --prefer-dist --no-interaction
+    script:
+      - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+      - php artisan dusk
+    after_success:
+      - bash <(curl -s https://codecov.io/bash)
+  - stage: build docker image
+    script:
+      - docker-compose up -d
+  - stage: package archive
+    script:
+      - composer install --prefer-dist --no-interaction --no-dev
+      - yarn production
