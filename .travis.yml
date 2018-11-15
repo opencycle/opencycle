@@ -6,6 +6,7 @@ services:
 language: php
 
 php:
+  - 7.1
   - 7.2
 
 cache:
@@ -13,16 +14,18 @@ cache:
     - node_modules
     - $HOME/.composer/cache/files
 
+install:
+  - composer install --prefer-dist --no-interaction
+
+script:
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  # - php artisan dusk
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 jobs:
   include:
-  - stage: test
-    install:
-      - composer install --prefer-dist --no-interaction
-    script:
-      - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-      # - php artisan dusk
-    after_success:
-      - bash <(curl -s https://codecov.io/bash)
   - stage: build docker image
     script:
       - docker build -t opencycle/opencycle .
