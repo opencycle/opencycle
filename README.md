@@ -21,7 +21,6 @@ There are several methods to install Opencycle, however the easiest way is via t
      
 ```bash
 $ git clone git@github.com:opencycle/opencycle.git .
-$ git checkout 0.1.0
 ```
 
 You will then also need to install and run [Composer](https://getcomposer.org/) to install the dependencies.
@@ -45,7 +44,7 @@ from the [releases](https://github.com/opencycle/opencycle/releases) page and up
 
 ```bash
 $ wget https://github.com/opencycle/opencycle/archive/master.zip
-$ unzip opencycle-master.zip
+$ unzip opencycle.zip
 ```
 
 This contains everything you need to begin [configuring](#configuration) your installation. 
