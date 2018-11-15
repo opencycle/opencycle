@@ -30,8 +30,9 @@ jobs:
     if: branch = master
     script:
       - docker build -t opencycle/opencycle .
-  - stage: package archive
-    if: branch = master
+      # - docker push opencycle/opencycle
+  - stage: package release archive
+    if: branch = master AND tag IS present
     script:
       - composer install --prefer-dist --no-interaction --no-dev
       - yarn install
@@ -45,5 +46,6 @@ jobs:
       skip_cleanup: true
       on:
         repo: opencycle/opencycle
+        tags: true
 
 

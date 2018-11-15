@@ -17,25 +17,11 @@ Opencycle is written in [Laravel](https://laravel.com/docs/5.7/installation#serv
 
 ## Installation
 
-There are several methods to install Opencycle. However the easiest way is to just download and extract the latest package
-from the [releases](https://github.com/opencycle/opencycle/releases) page and upload it to your web server. 
-
-```bash
-$ wget https://github.com/opencycle/opencycle/archive/master.zip
-$ unzip opencycle-master.zip
-```
-
-This contains everything you need to begin [configuring](#configuration) your installation. 
-
-#### Using Git
-
-Alternatively you can clone the repository with Git and checkout the latest release.
-       
+There are several methods to install Opencycle, however the easiest way is via the command line.
+     
 ```bash
 $ git clone git@github.com:opencycle/opencycle.git .
 $ git checkout 0.1.0
-$ composer install --no-dev
-$ yarn production
 ```
 
 You will then also need to install and run [Composer](https://getcomposer.org/) to install the dependencies.
@@ -52,6 +38,18 @@ or
 $ npm install && npm run production
 ```
 
+#### Release Package
+
+Alternatively you can download and extract the latest `opencycle.zip` package
+from the [releases](https://github.com/opencycle/opencycle/releases) page and upload it to your web server. 
+
+```bash
+$ wget https://github.com/opencycle/opencycle/archive/master.zip
+$ unzip opencycle-master.zip
+```
+
+This contains everything you need to begin [configuring](#configuration) your installation. 
+
 #### Docker Installation
 
 We also provide a Docker image,
@@ -59,7 +57,7 @@ please see the [Docker installation instructions](https://github.com/opencycle/o
 
 ## Configuration
 
-The easiest way to configure Opencycle is with the built in web installer. Once you have configured your web server visit the `/install` url to begin.
+To configure Opencycle you can use the bult in web installer. Once you have configured your web server visit the `/install` url to begin.
 
 http://yourdomain.com/install
 

@@ -83,7 +83,7 @@
                         <pre><code class="sh">$ git clone git@github.com:opencycle/opencycle.git .
 $ git checkout 0.1.0
 $ composer install --no-dev
-$ yarn production</code></pre>
+$ yarn install && yarn production</code></pre>
                     </div>
                     <div class="tab-pane fade" id="docker" role="tabpanel" aria-labelledby="docker-tab">
                         <p>We maintain an Opencycle <a href="https://hub.docker.com/r/opencycle/opencycle/">Docker image</a> on Docker Hub.</p>
@@ -181,7 +181,7 @@ $ docker-compose up -d</code></pre>
             hljs.highlightBlock(block);
         });
 
-        $.getJSON('https://api.github.com/repos/opencycle/opencycle/releases').done(function (json) {
+        $.getJSON('https://api.github.com/repos/opencycle/opencycle/releases/latest').done(function (json) {
             var release = json[0];
             console.log(release);
         });
