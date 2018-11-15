@@ -17,17 +17,59 @@ Opencycle is written in [Laravel](https://laravel.com/docs/5.7/installation#serv
 
 ## Installation
 
-The easiest way to install and configure Opencycle is with Git and the built in installer.
+There are several methods to install Opencycle. However the easiest way is to just download and extract the latest package
+from the [releases](https://github.com/opencycle/opencycle/releases) page and upload it to your web server. 
 
 ```bash
-$ git clone git@github.com:opencycle/opencycle.git .
-$ composer install
-$ php artisan opencycle:install
+$ wget https://github.com/opencycle/opencycle/archive/master.zip
+$ unzip opencycle-master.zip
 ```
 
-For more information and other methods please see the [Installation Instructions](https://github.com/opencycle/opencycle/wiki/Installation) on the Wiki.
+This contains everything you need to begin [configuring](#configuration) your installation. 
+
+#### Using Git
+
+Alternatively you can clone the repository with Git and checkout the latest release.
+       
+```bash
+$ git clone git@github.com:opencycle/opencycle.git .
+$ git checkout 0.1.0
+```
+
+You will then also need to install and run [Composer](https://getcomposer.org/) to install the dependencies.
+
+```bash
+$ composer install --no-dev
+```
+
+And then either [Yarn](https://yarnpkg.com/lang/en/) or [NPM](https://www.npmjs.com/get-npm) to compile the assets.
+
+```bash
+$ yarn production
+or
+$ npm install && npm run production
+```
+
+#### Docker Installation
+
+We also provide a Docker image,
+please see the [Docker installation instructions](https://github.com/opencycle/opencycle/wiki/Docker) in the wiki for more details.
+
+## Configuration
+
+The easiest way to configure Opencycle is with the built in web installer. Once you have configured your web server visit the `/install` url to begin.
+
+http://yourdomain.com/install
+
+#### Manually
+
+Of if you want more control you can configure Opencycle manually.
+Please see the [manual configuration](https://github.com/opencycle/opencycle/wiki/Configuration) page in the wiki for more info.
 
 ## Contributing
+
+For information on how to set up Opencycle for local development.
+Please see the [development instructions](https://github.com/opencycle/opencycle/wiki/Development) in the Wiki.
 
 We encourage pull requests from anyone. To do so, please fork and clone this repo.
 You work should then be done on a new feature branch. Once ready please
@@ -41,8 +83,6 @@ Please keep in mind:
 * Write tests
 * Follow the PSR-2 style guide
 * Add a detailed commit message
-
-For more information please see the [Development Instructions](https://github.com/opencycle/opencycle/wiki/Development) of the Wiki.
 
 ## License
 
