@@ -2,6 +2,7 @@
 
 namespace Opencycle\Http\Controllers;
 
+use Illuminate\Support\Facades\Artisan;
 use Opencycle\Http\Requests\CreateInstallEnvRequest;
 use Opencycle\Services\InstallationService;
 
@@ -82,20 +83,7 @@ class InstallController extends Controller
      */
     public function environmentCreate()
     {
-        $envPath = app()->environmentFilePath();
-        $envExamplePath = base_path('.env.example');
-
-        if (!file_exists($envPath)) {
-            if (file_exists($envExamplePath)) {
-                copy($envExamplePath, $envPath);
-            } else {
-                touch($envPath);
-            }
-        }
-
-        $envConfig = file_get_contents($envPath);
-
-        return view('install.environment', compact('envConfig'));
+        return view('install.environment');
     }
 
     /**
@@ -106,9 +94,9 @@ class InstallController extends Controller
      */
     public function environmentStore(CreateInstallEnvRequest $request)
     {
-        $request->all();
-
-        $this->installationService->writeEnvVar($key, $value);
+        collect($request->all())->each(function ($item, $key) {
+            $this->installationService->writeEnvVar(strtoupper($key), $item);
+        });
 
         return redirect()->route('install.database');
     }
@@ -120,6 +108,9 @@ class InstallController extends Controller
      */
     public function database()
     {
+        Artisan::call('migrate', ['--force' => true]);
+        Artisan::call('db:seed', ['--force' => true]);
+
         return redirect()->route('install.finish');
     }
 

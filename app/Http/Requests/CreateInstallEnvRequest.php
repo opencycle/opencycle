@@ -3,6 +3,7 @@
 namespace Opencycle\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CreateInstallEnvRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class CreateInstallEnvRequest extends FormRequest
      */
     public function authorize()
     {
-        return true; // TODO
+        return !file_exists(app_path('installed'));
     }
 
     /**
@@ -24,25 +25,27 @@ class CreateInstallEnvRequest extends FormRequest
     public function rules()
     {
         return [
-            'app_name'              => 'required|string|max:50',
-            'environment'           => 'required|string|max:50',
-            'app_debug'             => [
+            'app_name' => 'required|string|max:50',
+            'environment' => 'required|string|max:50',
+            'app_debug' => [
                 'required',
                 Rule::in(['true', 'false']),
             ],
-            'app_url'               => 'required|url',
-            'database_connection'   => 'required|string|max:50',
-            'database_hostname'     => 'required|string|max:50',
-            'database_port'         => 'required|numeric',
-            'database_name'         => 'required|string|max:50',
-            'database_username'     => 'required|string|max:50',
-            'database_password'     => 'required|string|max:50',
-            'mail_driver'           => 'required|string|max:50',
-            'mail_host'             => 'required|string|max:50',
-            'mail_port'             => 'required|string|max:50',
-            'mail_username'         => 'required|string|max:50',
-            'mail_password'         => 'required|string|max:50',
-            'mail_encryption'       => 'required|string|max:50',
+            'app_url' => 'required|url',
+            'db_connection' => 'required|string|max:50',
+            'db_host' => 'required|string|max:50',
+            'db_port' => 'required|numeric',
+            'db_database' => 'required|string|max:50',
+            'db_username' => 'required|string|max:50',
+            'db_password' => 'required|string|max:50',
+            'mail_driver' => 'required|string|max:50',
+            'mail_host' => 'required|string|max:50',
+            'mail_port' => 'required|string|max:50',
+            'mail_username' => 'required|string|max:50',
+            'mail_password' => 'required|string|max:50',
+            'mail_encryption' => 'required|string|max:50',
+            'nopcatcha_secret' => 'required|string|max:50',
+            'nopcatcha_sitekey' => 'required|string|max:50',
         ];
     }
 }

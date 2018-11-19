@@ -122,6 +122,11 @@ return [
     'providers' => [
 
         /*
+         * Installation Service Providers...
+         */
+        Opencycle\Providers\InstallationServiceProvider::class,
+
+        /*
          * Laravel Framework Service Providers...
          */
         Illuminate\Auth\AuthServiceProvider::class,

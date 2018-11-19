@@ -59,5 +59,6 @@ class Kernel extends HttpKernel
         'guest' => \Opencycle\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'install' => \Opencycle\Http\Middleware\CanInstall::class,
     ];
 }

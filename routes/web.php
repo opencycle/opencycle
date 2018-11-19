@@ -62,7 +62,7 @@ Route::get('/pragmarx/countries/flag/file/{cca3}.svg', '\PragmaRX\CountriesLarav
     ->name('countries.flag.file');
 
 // Installer
-Route::group(['prefix' => 'install'], function () {
+Route::group(['prefix' => 'install', 'middleware' => ['install']], function () {
     Route::get('/', [
         'as' => 'install.start',
         'uses' => 'InstallController@start'
