@@ -1,9 +1,11 @@
-# Opencycle 
+# Opencycle
 
 [![GitHub release](https://img.shields.io/github/release/opencycle/opencycle.svg)](https://github.com/opencycle/opencycle/releases)
- [![Build Status](https://travis-ci.com/opencycle/opencycle.svg?branch=master)](https://travis-ci.com/opencycle/opencycle) [![codecov](https://codecov.io/gh/opencycle/opencycle/branch/master/graph/badge.svg)](https://codecov.io/gh/opencycle/opencycle) [![StyleCI](https://github.styleci.io/repos/146082121/shield?branch=master)](https://github.styleci.io/repos/146082121) 
+ [![Build Status](https://travis-ci.com/opencycle/opencycle.svg?branch=master)](https://travis-ci.com/opencycle/opencycle) [![codecov](https://codecov.io/gh/opencycle/opencycle/branch/master/graph/badge.svg)](https://codecov.io/gh/opencycle/opencycle) [![StyleCI](https://github.styleci.io/repos/146082121/shield?branch=master)](https://github.styleci.io/repos/146082121)
 [![GitHub](https://img.shields.io/github/license/opencycle/opencycle.svg)](https://github.com/opencycle/opencycle/blob/master/LICENSE)
 [![](https://images.microbadger.com/badges/image/opencycle/opencycle.svg)](https://hub.docker.com/r/opencycle/opencycle/)
+
+> Please note this project is still under development so bugs are likely and there is no stable release at the moment. See the [roadmap](#feature-roadmap) for progress.
 
 An open source free classified ads platform.
 
@@ -18,7 +20,7 @@ Opencycle is written in [Laravel](https://laravel.com/docs/5.7/installation#serv
 ## Installation
 
 There are several methods to install Opencycle, however the easiest way is via the command line.
-     
+
 ```bash
 $ git clone git@github.com:opencycle/opencycle.git .
 ```
@@ -40,14 +42,14 @@ $ npm install && npm run production
 #### Release Package
 
 Alternatively you can download and extract the latest `opencycle.zip` package
-from the [releases](https://github.com/opencycle/opencycle/releases) page and upload it to your web server. 
+from the [releases](https://github.com/opencycle/opencycle/releases) page and upload it to your web server.
 
 ```bash
 $ wget https://github.com/opencycle/opencycle/archive/master.zip
 $ unzip opencycle.zip
 ```
 
-This contains everything you need to begin [configuring](#configuration) your installation. 
+This contains everything you need to begin [configuring](#configuration) your installation.
 
 #### Docker Installation
 
@@ -89,39 +91,40 @@ Opencycle is released under the [GPLv3 license](LICENSE)
 
 ## Feature Roadmap
 
- #### First release
- 
- * General
-   * SEO - social metadata, page titles
-   * Error pages
-   * Style emails
-   * Search
-   * TOS/Privacy policy - cms?
-   * Social logins
-   * Multi language?
-   * Queues
- * Groups
-   * Member count on group page
-   * Group files and links?
-   * User group settings
-   * Create a group
- * Posts
-   * Post types, wanted/offered
-   * Image uploads
-   * Report a post
-   * Post expiry and post/image deletion
- * Admin/moderation area
-   * Post approval
-   * Member approval
-   * Group approval
-   * Group timezone
-   * Group description WYSIWYG editor
-   * Hotwords to force post moderation
+These are the features still to be developed for each planned release.
 
-#### Phase 2
+#### First alpha release
 
- * Moderator email address
- * Invite users to group
- * Admin posts
- * Web installer - https://github.com/rashidlaasri/LaravelInstaller
+* General
+  * SEO - social metadata, page titles
+  * Error pages
+  * Style emails
+  * Search
+  * TOS/Privacy policy - cms?
+  * Social logins
+  * Multi language?
+  * Queues
+* Groups
+  * Member count on group page
+  * Group files and links?
+  * User group settings
+  * Create a group
+* Posts
+  * Post types, wanted/offered
+  * Image uploads
+  * Report a post
+  * Post expiry and post/image deletion
+* Admin/moderation area
+  * Post approval
+  * Member approval
+  * Group approval
+  * Group timezone
+  * Group description WYSIWYG editor
+  * Hotwords to force post moderation
 
+#### First beta release
+
+* Moderator email address
+* Invite users to group
+* Admin posts
+* Web installer - https://github.com/rashidlaasri/LaravelInstaller
