@@ -8,15 +8,15 @@
         @csrf
 
         <div class="form-group">
-            <label for="email">{{ __('Email preference') }}</label>
-            <select class="form-control" name="email">
+            <label for="email_prefs">{{ __('Email preference') }}</label>
+            <select class="form-control" name="email_prefs">
                 <option value="1">None apart from Admin</option>
                 <option value="2">One for each Post</option>
                 <option value="3">Daily digest</option>
             </select>
-            @if ($errors->has('email'))
+            @if ($errors->has('email_prefs'))
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('email') }}</strong>
+                    <strong>{{ $errors->first('email_prefs') }}</strong>
                 </span>
             @endif
         </div>

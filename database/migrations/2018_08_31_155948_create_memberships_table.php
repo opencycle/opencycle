@@ -17,6 +17,7 @@ class CreateMembershipsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('group_id')->unsigned();
             $table->integer('role_id')->nullable()->unsigned();
+            $table->integer('email_prefs')->unsigned()->default(1);
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('group_id')->references('id')->on('groups');

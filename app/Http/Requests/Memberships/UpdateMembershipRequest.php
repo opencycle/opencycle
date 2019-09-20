@@ -24,7 +24,7 @@ class UpdateMembershipRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email_prefs' => 'required|integer|max:3',
         ];
     }
 }
