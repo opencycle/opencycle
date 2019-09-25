@@ -44,7 +44,7 @@ class MembershipController extends Controller
     {
         Auth::user()->groups()->updateExistingPivot($group->id, $request->all());
 
-        return redirect()->route('groups.show', $group)->with('success', 'Edited group settings');
+        return redirect()->back()->with('success', 'Edited group settings');
     }
 
     /**

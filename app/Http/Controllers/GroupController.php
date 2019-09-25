@@ -39,20 +39,6 @@ class GroupController extends Controller
     }
 
     /**
-     * Makes the current user a member of the specified group.
-     *
-     * @param Group $group
-     * @return \Illuminate\Http\Response
-     */
-    public function join(Group $group)
-    {
-        $user = Auth::user();
-        $user->groups()->attach($group);
-
-        return redirect()->back()->with('success', 'You have joined this group');
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param Group $group

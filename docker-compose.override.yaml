@@ -9,6 +9,8 @@ services:
     volumes:
       - ./:/var/www/html
   nginx:
+    depends_on:
+      - opencycle
     volumes:
       - ./:/var/www/html
   database:

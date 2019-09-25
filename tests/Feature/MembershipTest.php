@@ -6,7 +6,7 @@ use Opencycle\User;
 use Opencycle\Group;
 use Tests\TestCase;
 
-class GroupTest extends TestCase
+class MembershipTest extends TestCase
 {
     /**
      * Test a user can join a group.
@@ -15,10 +15,10 @@ class GroupTest extends TestCase
      */
     public function testUserCanJoinAGroup()
     {
-        $user = factory(User::class)->states('withGroup')->create();
-        $group = $user->groups->first();
+        $user = factory(User::class)->create();
+        $group = factory(Group::class)->create();
 
-        $this->actingAs($user)->patch(route('memberships.store', $group));
+        $this->actingAs($user)->post(route('memberships.store', $group));
 
         $this->assertEquals($user->groups->first()->id, $group->id);
         $this->assertNull($user->groups->first()->membership->role);
@@ -37,5 +37,22 @@ class GroupTest extends TestCase
         $this->actingAs($user)->delete(route('memberships.destroy', $group));
 
         $this->assertNull($user->fresh()->groups->first());
+    }
+
+    /**
+     * Test a user can update group preferences.
+     *
+     * @return void
+     */
+    public function testUserCanUpdateAGroup()
+    {
+        $user = factory(User::class)->states('withGroup')->create();
+        $group = $user->groups->first();
+
+        $this->actingAs($user)->patch(route('memberships.update', $group), [
+            'email_prefs' => 2
+        ]);
+
+        $this->assertEquals(2, $group->membership->email_prefs);
     }
 }

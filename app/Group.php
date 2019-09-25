@@ -70,7 +70,7 @@ class Group extends Model
     {
         return $this->belongsToMany(User::class, 'memberships')
             ->as('membership')
-            ->withPivot('role_id')
+            ->withPivot('role_id', 'email_prefs')
             ->using(Membership::class);
     }
 }
