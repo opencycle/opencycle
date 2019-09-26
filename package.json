@@ -18,7 +18,7 @@
         "@uppy/react": "^0.27.5",
         "@uppy/tus": "^0.27.5",
         "babel-preset-react": "^6.23.0",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.3.1",
         "bootstrap.native": "^2.0.23",
         "cross-env": "^5.1",
         "laravel-mix": "^2.0",
