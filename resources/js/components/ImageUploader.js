@@ -20,7 +20,7 @@ const uppy = Uppy({
     retryDelays: [0, 1000, 3000, 5000],
 });
 
-export default class ImageUploder extends Component {
+export default class ImageUploader extends Component {
     render() {
         uppy.use(Form, {
             target: '#post-create',
@@ -41,5 +41,5 @@ export default class ImageUploder extends Component {
 }
 
 if (document.getElementById('image-uploader')) {
-    ReactDOM.render(<ImageUploder />, document.getElementById('image-uploader'));
+    ReactDOM.render(<ImageUploader />, document.getElementById('image-uploader'));
 }
