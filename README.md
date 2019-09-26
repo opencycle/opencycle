@@ -104,6 +104,8 @@ These are the features still to be developed for each planned release.
   * Social logins
   * Multi language?
   * Queues
+  * Authenticate routes
+  * Limit seeded countries to ones with enough data
 * Groups
   * Member count on group page
   * Group files and links?
