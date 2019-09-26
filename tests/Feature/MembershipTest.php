@@ -44,7 +44,7 @@ class MembershipTest extends TestCase
      *
      * @return void
      */
-    public function testUserCanUpdateAGroup()
+    public function testUserCanUpdateGroupPreferences()
     {
         $user = factory(User::class)->states('withGroup')->create();
         $group = $user->groups->first();

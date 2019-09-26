@@ -35,6 +35,6 @@ class GroupPolicy
      */
     public function update(User $user, Group $group)
     {
-        return $user->isMemberOf($group) && $user->groups()->find($group->id)->membership->hasRole(Role::ofType(Role::ADMIN));
+        return $user->isMemberOf($group) && $user->getMembership($group)->hasRole(Role::ofType(Role::ADMIN));
     }
 }
