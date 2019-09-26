@@ -4,6 +4,7 @@ namespace Opencycle\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Opencycle\Group;
+use Opencycle\Membership;
 use Opencycle\Http\Requests\Memberships\UpdateMembershipRequest;
 
 class MembershipController extends Controller
@@ -30,7 +31,9 @@ class MembershipController extends Controller
      */
     public function edit(Group $group)
     {
-        return view('memberships.edit', compact('group'));
+        $membership = Auth::user()->getMembership($group);
+
+        return view('memberships.edit', compact('group', 'membership'));
     }
 
     /**

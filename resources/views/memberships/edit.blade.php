@@ -10,9 +10,9 @@
         <div class="form-group">
             <label for="email_prefs">{{ __('Email preference') }}</label>
             <select class="form-control" name="email_prefs">
-                <option value="1">None apart from Admin</option>
-                <option value="2">One for each Post</option>
-                <option value="3">Daily digest</option>
+                <option value="1" {{ ($membership->email_prefs == 1) ? 'selected' : '' }}>None apart from Admin</option>
+                <option value="2" {{ ($membership->email_prefs == 2) ? 'selected' : '' }}>One for each Post</option>
+                <option value="3" {{ ($membership->email_prefs == 3) ? 'selected' : '' }}>Daily digest</option>
             </select>
             @if ($errors->has('email_prefs'))
                 <span class="invalid-feedback" role="alert">

@@ -10,6 +10,8 @@ use Opencycle\Post;
 use Opencycle\Policies\PostPolicy;
 use Opencycle\Policies\UserPolicy;
 use Opencycle\User;
+use Opencycle\Policies\MembershipPolicy;
+use Opencycle\Membership;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,7 @@ class AuthServiceProvider extends ServiceProvider
         Post::class => PostPolicy::class,
         User::class => UserPolicy::class,
         Group::class => GroupPolicy::class,
+        Membership::class => MembershipPolicy::class,
     ];
 
     /**

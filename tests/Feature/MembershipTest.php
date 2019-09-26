@@ -53,6 +53,8 @@ class MembershipTest extends TestCase
             'email_prefs' => 2
         ]);
 
-        $this->assertEquals(2, $group->membership->email_prefs);
+        $user->setRelations([]); // h4x https://laracasts.com/discuss/channels/testing/refresh-a-model?page=1
+
+        $this->assertEquals(2, $user->getMembership($group)->email_prefs);
     }
 }

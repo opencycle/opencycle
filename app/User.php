@@ -50,6 +50,17 @@ class User extends Authenticatable
     }
 
     /**
+     * Return the membership pivot model for this Group.
+     *
+     * @param Group $group
+     * @return Membership
+     */
+    public function getMembership(Group $group): Membership
+    {
+        return $this->groups->find($group->id)->membership;
+    }
+
+    /**
      * The global Role this User has.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

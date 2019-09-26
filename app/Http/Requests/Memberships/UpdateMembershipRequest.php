@@ -13,7 +13,10 @@ class UpdateMembershipRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        $group = $this->route('group');
+        $membership = $this->user()->getMembership($group);
+
+        return $group && $this->user() && $this->user()->can('update', $membership);
     }
 
     /**
