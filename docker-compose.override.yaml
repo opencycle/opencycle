@@ -14,6 +14,8 @@ services:
     volumes:
       - ./:/var/www/html
   database:
+    ports:
+      - 5432:5432
     environment:
       - "POSTGRES_DB=opencycle"
       - "POSTGRES_USER=homestead"
