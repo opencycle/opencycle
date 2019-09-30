@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Opencycle\User;
+use Opencycle\Group;
 use Tests\TestCase;
 
 class SearchTest extends TestCase
@@ -14,8 +15,8 @@ class SearchTest extends TestCase
      */
     public function testUserCanSearchForGroup()
     {
-        $user = factory(User::class)->states('withGroup')->create();
-        $group = $user->groups->first();
+        $user = factory(User::class)->create();
+        $group = factory(Group::class)->create();
 
         $response = $this->actingAs($user)->get(route('search', ['query' => $group->name]));
 
