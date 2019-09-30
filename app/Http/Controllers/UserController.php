@@ -13,6 +13,14 @@ use Opencycle\User;
 class UserController extends Controller
 {
     /**
+     * UserController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(User::class);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

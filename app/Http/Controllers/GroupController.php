@@ -11,6 +11,14 @@ use Opencycle\Region;
 class GroupController extends Controller
 {
     /**
+     * GroupController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Group::class);
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param Country $country

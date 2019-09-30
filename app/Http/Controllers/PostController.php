@@ -18,9 +18,7 @@ class PostController extends Controller
      */
     public function __construct()
     {
-        $this->authorizeResource(Post::class, null, [
-            'except' => ['index', 'show', 'create', 'store'],
-        ]);
+        $this->authorizeResource(Post::class);
     }
 
     /**

@@ -40,6 +40,20 @@ class MembershipTest extends TestCase
     }
 
     /**
+     * Test a user can view the edit group preferences page.
+     *
+     * @return void
+     */
+    public function testUserCanViewEditGroupPreferencesPage()
+    {
+        $user = factory(User::class)->states('withGroup')->create();
+        $group = $user->groups->first();
+        $response = $this->actingAs($user)->get(route('memberships.edit', $group));
+
+        $response->assertOk();
+    }
+
+    /**
      * Test a user can update group preferences.
      *
      * @return void

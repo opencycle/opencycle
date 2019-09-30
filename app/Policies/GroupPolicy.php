@@ -27,6 +27,16 @@ class GroupPolicy
     }
 
     /**
+     * Determine whether the user can view the group.
+     *
+     * @return bool
+     */
+    public function view()
+    {
+        return true;
+    }
+
+    /**
      * Determine whether the user can update the group.
      *
      * @param User $user

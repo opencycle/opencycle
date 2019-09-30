@@ -10,6 +10,14 @@ use Opencycle\Http\Requests\Memberships\UpdateMembershipRequest;
 class MembershipController extends Controller
 {
     /**
+     * MembershipController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Membership::class);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @param Group $group

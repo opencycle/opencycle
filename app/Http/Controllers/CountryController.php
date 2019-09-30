@@ -3,7 +3,6 @@
 namespace Opencycle\Http\Controllers;
 
 use Opencycle\Country;
-use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
