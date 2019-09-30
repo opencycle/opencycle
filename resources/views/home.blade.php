@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'An open source free classified ads platform.')
+@section('title', 'An open source classified ads platform')
 
 @section('content')
     <div class="container">

@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', "Countries")
+@section('description', "A list of countries with active groups")
+
 @section('content')
     <div class="container">
         <div class="row">

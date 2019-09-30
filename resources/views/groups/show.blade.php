@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', "Posts on the $group->name group")
+@section('description', $group->description)
+
 @section('content')
     <div class="container">
         <nav aria-label="breadcrumb">

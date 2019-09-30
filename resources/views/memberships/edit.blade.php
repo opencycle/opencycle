@@ -1,6 +1,6 @@
 @extends('layouts.form')
 
-@section('title', 'Settings for ' . $group->name)
+@section('title', "Settings for group->name")
 
 @section('form')
     <form action="{{ route('memberships.update', $group) }}" method="POST">

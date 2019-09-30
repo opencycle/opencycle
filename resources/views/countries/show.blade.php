@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', "Regions of $country->name")
+@section('description', "A list of regions with active groups in $country->name")
+
 @section('content')
     <div class="container">
         <nav aria-label="breadcrumb">

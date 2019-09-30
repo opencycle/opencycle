@@ -1,6 +1,6 @@
 @extends('layouts.form')
 
-@section('title', 'Reply to Post: ' . $post->title)
+@section('title', "Reply to Post: $post->title")
 
 @section('form')
     <form action="{{ route('posts.reply.store', $post) }}" method="POST">
