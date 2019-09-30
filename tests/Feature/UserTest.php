@@ -80,4 +80,20 @@ class UserTest extends TestCase
 
         $response->assertForbidden();
     }
+
+    /**
+     * Test a user can delete their profile.
+     *
+     * @return void
+     */
+    public function testUserCanDeleteProfile()
+    {
+        $user = factory(User::class)->create();
+
+        $this->actingAs($user)->deleteJson(route('users.destroy', $user));
+
+        $this->assertDatabaseMissing('users', [
+            'id' => $user->id,
+        ]);
+    }
 }
