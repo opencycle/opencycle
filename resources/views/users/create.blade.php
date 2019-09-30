@@ -61,7 +61,7 @@
                 {!! NoCaptcha::display() !!}
 
                 @if ($errors->has('g-recaptcha-response'))
-                    <span class="invalid-feedback" role="alert">
+                    <span class="invalid-feedback" role="alert" style="display: block;">
                         <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                     </span>
                 @endif
