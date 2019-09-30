@@ -49,6 +49,8 @@ Route::middleware(['auth'])->group(function () {
         'edit', 'update'
     ]);
 
+    Route::get('search', 'SearchController@search')->name('search');
+
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 });
 
@@ -85,8 +87,6 @@ Route::group(['prefix' => 'install', 'middleware' => ['install']], function () {
         'uses' => 'InstallController@environmentStore'
     ]);
 });
-
-Route::get('search', 'SearchController@search')->name('search');
 
 Route::get('browse', 'CountryController@index')->name('countries.index');
 
