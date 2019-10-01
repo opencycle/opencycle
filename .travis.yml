@@ -32,10 +32,10 @@ after_success:
 jobs:
   include:
   - stage: build docker image
-    if: branch = master
+    if: branch = master AND tag IS present
     script:
       - docker build -t opencycle/opencycle .
-      # - docker push opencycle/opencycle
+      - docker push opencycle/opencycle
   - stage: package release archive
     if: branch = master AND tag IS present
     script:

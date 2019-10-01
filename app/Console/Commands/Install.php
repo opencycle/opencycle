@@ -71,7 +71,7 @@ class Install extends Command
     private function checkPhpVersion()
     {
         if (false) {
-            $this->error('Your version of PHP is not supported, Opencycle requires at least PHP 7.1.3');
+            $this->error('Your version of PHP is not supported, Opencycle requires at least PHP 7.2');
         }
     }
 
