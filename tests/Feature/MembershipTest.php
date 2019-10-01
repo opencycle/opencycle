@@ -48,6 +48,7 @@ class MembershipTest extends TestCase
     {
         $user = factory(User::class)->states('withGroup')->create();
         $group = $user->groups->first();
+
         $response = $this->actingAs($user)->get(route('memberships.edit', $group));
 
         $response->assertOk();

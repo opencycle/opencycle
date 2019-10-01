@@ -10,14 +10,6 @@ use Opencycle\Http\Requests\Memberships\UpdateMembershipRequest;
 class MembershipController extends Controller
 {
     /**
-     * MembershipController constructor.
-     */
-    public function __construct()
-    {
-        $this->authorizeResource(Membership::class);
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @param Group $group
@@ -41,6 +33,8 @@ class MembershipController extends Controller
     {
         $membership = Auth::user()->getMembership($group);
 
+        $this->authorize('update', $membership);
+
         return view('memberships.edit', compact('group', 'membership'));
     }
 
@@ -53,6 +47,10 @@ class MembershipController extends Controller
      */
     public function update(UpdateMembershipRequest $request, Group $group)
     {
+        $membership = Auth::user()->getMembership($group);
+
+        $this->authorize('update', $membership);
+
         Auth::user()->groups()->updateExistingPivot($group->id, $request->all());
 
         return redirect()->back()->with('success', 'Edited group settings');
@@ -67,6 +65,10 @@ class MembershipController extends Controller
     public function destroy(Group $group)
     {
         $user = Auth::user();
+        $membership = Auth::user()->getMembership($group);
+
+        $this->authorize('delete', $membership);
+
         $user->groups()->detach($group->id);
 
         return redirect()->back()->with('success', 'You have left the group');
