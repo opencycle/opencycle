@@ -29,6 +29,7 @@ jobs:
       - php artisan serve &
     script:
       - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+      - php artisan dusk:chrome-driver
       - php artisan dusk
   - stage: build docker image
     if: branch = master AND tag IS present
