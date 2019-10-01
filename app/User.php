@@ -55,9 +55,11 @@ class User extends Authenticatable
      * @param Group $group
      * @return Membership
      */
-    public function getMembership(Group $group): Membership
+    public function getMembership(Group $group): ?Membership
     {
-        return $this->groups->find($group->id)->membership;
+        $group = $this->groups->find($group->id);
+
+        return $group ? $group->membership : null;
     }
 
     /**

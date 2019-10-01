@@ -40,6 +40,21 @@ class MembershipTest extends TestCase
     }
 
     /**
+     * Test a user cannot leave a group they are not a member of.
+     *
+     * @return void
+     */
+    public function testUserCannotLeaveAGroupTheyAreNotAMemberOf()
+    {
+        $user = factory(User::class)->create();
+        $group = factory(Group::class)->create();
+
+        $response = $this->actingAs($user)->delete(route('memberships.destroy', $group));
+
+        $response->assertForbidden();
+    }
+
+    /**
      * Test a user can view the edit group preferences page.
      *
      * @return void
@@ -52,6 +67,21 @@ class MembershipTest extends TestCase
         $response = $this->actingAs($user)->get(route('memberships.edit', $group));
 
         $response->assertOk();
+    }
+
+    /**
+     * Test a user cannot view the edit group preferences page of a group they are not a member of.
+     *
+     * @return void
+     */
+    public function testUserCannotViewEditGroupPreferencesPageTheyAreNotAMemberOf()
+    {
+        $user = factory(User::class)->create();
+        $group = factory(Group::class)->create();
+
+        $response = $this->actingAs($user)->get(route('memberships.edit', $group));
+
+        $response->assertForbidden();
     }
 
     /**
@@ -71,5 +101,22 @@ class MembershipTest extends TestCase
         $user->setRelations([]); // h4x https://laracasts.com/discuss/channels/testing/refresh-a-model?page=1
 
         $this->assertEquals(2, $user->getMembership($group)->email_prefs);
+    }
+
+    /**
+     * Test a user can update group preferences of a group they are not a member of.
+     *
+     * @return void
+     */
+    public function testUserCannotUpdateGroupPreferencesTheyAreNotAMemberOf()
+    {
+        $user = factory(User::class)->create();
+        $group = factory(Group::class)->create();
+
+        $response = $this->actingAs($user)->patch(route('memberships.update', $group), [
+            'email_prefs' => 2
+        ]);
+
+        $response->assertForbidden();
     }
 }
