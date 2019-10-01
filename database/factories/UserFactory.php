@@ -2,6 +2,7 @@
 
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Opencycle\User;
 use Opencycle\Group;
 use Opencycle\Role;
@@ -10,8 +11,8 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'username' => $faker->userName,
         'email' => $faker->unique()->safeEmail,
-        'password' => Hash::make(str_random(10)),
-        'remember_token' => str_random(10),
+        'password' => Hash::make(Str::random(10)),
+        'remember_token' => Str::random(10),
     ];
 });
 
