@@ -18,19 +18,18 @@ cache:
 install:
   - composer install --prefer-dist --no-interaction --no-suggest
 
-before_script:
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-  - php artisan serve &
-
-script:
-  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-  - php artisan dusk
-
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 jobs:
   include:
+  - stage: run tests
+    before_script:
+      - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+      - php artisan serve &
+    script:
+      - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+      - php artisan dusk
   - stage: build docker image
     if: branch = master AND tag IS present
     script:
