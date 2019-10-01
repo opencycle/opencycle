@@ -96,4 +96,19 @@ class UserTest extends TestCase
             'id' => $user->id,
         ]);
     }
+
+    /**
+     * Test a user can delete other users profiles.
+     *
+     * @return void
+     */
+    public function testUserCannotDeleteOtherUsersProfile()
+    {
+        $user = factory(User::class)->create();
+        $otherUser = factory(User::class)->create();
+
+        $response = $this->actingAs($user)->deleteJson(route('users.destroy', $otherUser));
+
+        $response->assertForbidden();
+    }
 }

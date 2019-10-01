@@ -10,7 +10,19 @@ class UserPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can update the model.
+     * Determine whether the user can create a user.
+     *
+     * @param User $user
+     * @param Group $group
+     * @return mixed
+     */
+    public function create(?User $user)
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can update the user.
      *
      * @param  \Opencycle\User  $user
      * @param  \Opencycle\User  $model
@@ -22,7 +34,7 @@ class UserPolicy
     }
 
     /**
-     * Determine whether the user can delete the model.
+     * Determine whether the user can delete the user.
      *
      * @param  \Opencycle\User  $user
      * @param  \Opencycle\User  $model
