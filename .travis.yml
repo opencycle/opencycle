@@ -5,21 +5,26 @@ services:
 
 language: php
 
+addons:
+  chrome: stable
+
 php:
-  - 7.1
   - 7.2
 
 cache:
   directories:
-    - node_modules
     - "$HOME/.composer/cache/files"
 
 install:
-  - composer install --prefer-dist --no-interaction
+  - composer install --prefer-dist --no-interaction --no-suggest
+
+before_script:
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - php artisan serve &
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-  # - php artisan dusk
+  - php artisan dusk
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
@@ -47,5 +52,3 @@ jobs:
       on:
         repo: opencycle/opencycle
         tags: true
-
-
