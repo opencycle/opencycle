@@ -7,7 +7,7 @@
 
 > Please note this project is still under development so bugs are likely and there is no stable release at the moment. See the [roadmap](#feature-roadmap) for progress.
 
-An open source free classified ads platform.
+An open source classified ads platform.
 
 ## Requirements
 
