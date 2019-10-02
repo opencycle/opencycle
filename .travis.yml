@@ -12,7 +12,7 @@ install:
   - composer install --prefer-dist --no-interaction --no-suggest
 
 script:
-  - ./vendor/bin/phpcs --standard=PSR2 ./app
+  - ./vendor/bin/phpcs --standard=.phpcs.xml ./app
   - php artisan code:analyse
   - ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 

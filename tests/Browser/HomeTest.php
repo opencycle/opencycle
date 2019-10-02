@@ -18,7 +18,7 @@ class HomeTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit(new HomePage)
-                    ->assertSee('Opencycle');
+                    ->assertSee(config('app.name', 'Opencycle'));
         });
     }
 }
