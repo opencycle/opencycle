@@ -19,14 +19,11 @@ class SendNewPostNotifications
     {
         $post = $event->post;
 
-        $post->group->users->filter(function (User $user) use ($post) {
-            return $user->id !== $post->user->id;
-        })->each(function (User $user) use ($post) {
-            $membership = $user->getMembership($post->group);
-
-            if ($membership->email_prefs === Membership::NOTIFY_EACH) {
+        $post->group->users()
+            ->where('id', '!=', $post->user->id)
+            ->wherePivot('email_prefs', '=', Membership::NOTIFY_EACH)
+            ->each(function (User $user) use ($post) {
                 $user->notify(new NewPost($post));
-            }
-        });
+            });
     }
 }

@@ -31,6 +31,7 @@ class CreatePostRequest extends FormRequest
             'title' => 'required|max:255',
             'location' => 'required|max:255',
             'description' => 'required',
+            'type' => 'required|in:offer,wanted',
             'group' => 'required|exists:groups,id'
         ];
     }

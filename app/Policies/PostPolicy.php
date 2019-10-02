@@ -12,6 +12,16 @@ class PostPolicy
     use HandlesAuthorization;
 
     /**
+     * Determine whether the user can view the post.
+     *
+     * @return bool
+     */
+    public function view()
+    {
+        return true;
+    }
+
+    /**
      * Determine whether the user can create posts.
      *
      * @param User $user

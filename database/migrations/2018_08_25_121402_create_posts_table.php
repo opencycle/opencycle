@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->string('location');
             $table->text('description');
+            $table->enum('type', ['offer', 'wanted']);
             $table->integer('user_id')->unsigned();
             $table->integer('group_id')->unsigned();
             $table->timestamps();

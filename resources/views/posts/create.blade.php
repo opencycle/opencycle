@@ -7,6 +7,20 @@
         @csrf
 
         <div class="form-group">
+            <label for="title">{{ __('Type') }}</label>
+            <select class="form-control" name="type">
+                @foreach(['offer' => 'Offer of an item', 'wanted' => 'Request for a wanted item'] AS $value => $label)
+                    <option value="{{ $value }}" {{ old('type') == $value ? "selected" : "" }}>{{ $label }}</option>
+                @endforeach
+            </select>
+            @if ($errors->has('type'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('type') }}</strong>
+                </span>
+            @endif
+        </div>
+
+        <div class="form-group">
             <label for="title">{{ __('Title') }}</label>
             <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" id="title" placeholder="Post title" value="{{ old('title') }}" required autofocus>
             @if ($errors->has('title'))

@@ -10,6 +10,7 @@ $factory->define(Post::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence,
         'description' => $faker->paragraph,
+        'type' => $faker->randomElement(['offer', 'wanted']),
         'location' => $faker->streetName,
         'user_id' => function () {
             return factory(User::class)->create()->id;

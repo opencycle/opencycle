@@ -62,6 +62,7 @@ class PostTest extends TestCase
             'location' => $this->faker->city,
             'group' => $group->id,
             'description' => $this->faker->email,
+            'type' => $this->faker->randomElement(['offer', 'wanted'])
         ];
 
         $this->actingAs($user)->post(route('posts.store'), $newData);
@@ -71,7 +72,8 @@ class PostTest extends TestCase
             'location' => $newData['location'],
             'group_id' => $group->id,
             'user_id' => $user->id,
-            'description' =>$newData['description'],
+            'description' => $newData['description'],
+            'type' => $newData['type'],
         ]);
 
         Event::assertDispatched(PostCreated::class);
@@ -97,6 +99,21 @@ class PostTest extends TestCase
         $response = $this->actingAs($user)->post(route('posts.store'), $newData);
 
         $response->assertForbidden();
+    }
+
+    /**
+     * Test a user can view a post page.
+     *
+     * @return void
+     */
+    public function testUserCanViewPostPage()
+    {
+        $user = factory(User::class)->create();
+        $post = factory(Post::class)->create();
+
+        $response = $this->actingAs($user)->get(route('posts.show', $post));
+
+        $response->assertOk();
     }
 
     /**
