@@ -22,7 +22,7 @@ class AuthTest extends TestCase
 
         $user->groups()->save($group);
 
-        $this->assertFalse($user->groups->first()->membership->hasRole($role));
+        $this->assertFalse($user->getMembership($group)->hasRole($role));
     }
 
     /**
@@ -38,6 +38,6 @@ class AuthTest extends TestCase
 
         $user->groups()->save($group, ['role_id' => $role->id]);
 
-        $this->assertTrue($user->groups->first()->membership->hasRole($role));
+        $this->assertTrue($user->getMembership($group)->hasRole($role));
     }
 }

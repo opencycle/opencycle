@@ -3,7 +3,9 @@
 namespace Tests\Feature;
 
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Event;
 use Opencycle\Notifications\PostReply;
+use Opencycle\Events\PostCreated;
 use Opencycle\Post;
 use Opencycle\User;
 use Opencycle\Group;
@@ -47,6 +49,10 @@ class PostTest extends TestCase
      */
     public function testUserCanCreatePost()
     {
+        Event::fake([
+            PostCreated::class,
+        ]);
+
         $user = factory(User::class)->states('withGroup')->create();
         $group = $user->groups->first();
 
@@ -66,6 +72,8 @@ class PostTest extends TestCase
             'user_id' => $user->id,
             'description' =>$newData['description'],
         ]);
+
+        Event::assertDispatched(PostCreated::class);
     }
 
     /**

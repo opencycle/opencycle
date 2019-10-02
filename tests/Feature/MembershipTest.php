@@ -21,7 +21,7 @@ class MembershipTest extends TestCase
         $this->actingAs($user)->post(route('memberships.store', $group));
 
         $this->assertEquals($user->groups->first()->id, $group->id);
-        $this->assertNull($user->groups->first()->membership->role);
+        $this->assertNull($user->getMembership($group)->role);
     }
 
     /**

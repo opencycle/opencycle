@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use Anhskohbo\NoCaptcha\Facades\NoCaptcha;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Auth\Events\Registered;
 use Opencycle\User;
 use Tests\TestCase;
 
@@ -15,6 +17,10 @@ class UserTest extends TestCase
      */
     public function testUserCanRegister()
     {
+        Event::fake([
+            Registered::class,
+        ]);
+
         NoCaptcha::shouldReceive('verifyResponse')
             ->once()
             ->andReturn(true);
@@ -28,6 +34,8 @@ class UserTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
+
+        Event::assertDispatched(Registered::class);
     }
 
     /**
