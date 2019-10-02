@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Event;
 use Opencycle\Notifications\PostReply;
+use Opencycle\Notifications\NewPost;
 use Opencycle\Events\PostCreated;
 use Opencycle\Post;
 use Opencycle\User;
@@ -253,5 +254,46 @@ class PostTest extends TestCase
         $response = $this->actingAs($user)->deleteJson(route('posts.destroy', $post));
 
         $response->assertForbidden();
+    }
+
+    /**
+     * Test a user who has signed up to be notified is notified of a new post.
+     *
+     * @return void
+     */
+    public function testUserIsNotifiedOfNewPost()
+    {
+        Notification::fake();
+
+        $user = factory(User::class)->states('withNotifiyEach')->create();
+        $post = factory(Post::class)->create([
+            'group_id' => $user->groups->first()->id,
+        ]);
+
+        event(new PostCreated($post));
+
+        Notification::assertSentTo(
+            $user,
+            NewPost::class
+        );
+    }
+
+    /**
+     * Test a user who has not signed up to be notified is not notified of a new post.
+     *
+     * @return void
+     */
+    public function testUserIsNotNotifiedOfNewPost()
+    {
+        Notification::fake();
+
+        $user = factory(User::class)->states('withGroup')->create();
+        $post = factory(Post::class)->create([
+            'group_id' => $user->groups->first()->id,
+        ]);
+
+        event(new PostCreated($post));
+
+        Notification::assertNothingSent();
     }
 }

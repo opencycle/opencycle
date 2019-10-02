@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Opencycle\User;
 use Opencycle\Group;
+use Opencycle\Membership;
 use Opencycle\Role;
 
 $factory->define(User::class, function (Faker $faker) {
@@ -26,4 +27,12 @@ $factory->afterCreatingState(User::class, 'withAdminGroup', function ($user, $fa
 
 $factory->afterCreatingState(User::class, 'withModeratorGroup', function ($user, $faker) {
     $user->groups()->save(factory(Group::class)->create(), ['role_id' => Role::ofType(Role::MODERATOR)->id]);
+});
+
+$factory->afterCreatingState(User::class, 'withNotifiyEach', function ($user, $faker) {
+    $user->groups()->save(factory(Group::class)->create(), ['email_prefs' => Membership::NOTIFY_EACH]);
+});
+
+$factory->afterCreatingState(User::class, 'withNotifiyDigest', function ($user, $faker) {
+    $user->groups()->save(factory(Group::class)->create(), ['email_prefs' => Membership::NOTIFY_EACH]);
 });

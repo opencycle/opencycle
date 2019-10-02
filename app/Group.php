@@ -4,7 +4,6 @@ namespace Opencycle;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 
 class Group extends Model
 {
