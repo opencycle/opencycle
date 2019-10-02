@@ -26,7 +26,7 @@ jobs:
   - stage: run tests
     before_script:
       - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-      - php artisan serve &
+      - sudo php artisan serve --port=80 &
     script:
       - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
       - php artisan dusk:chrome-driver
