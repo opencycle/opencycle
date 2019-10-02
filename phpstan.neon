@@ -1,0 +1,6 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+parameters:
+    ignoreErrors:
+        - '#Call to an undefined static method PragmaRX\\CountriesLaravel\\Package\\Facade::where\(\)\.#'
+        - '#Call to an undefined method TusPhp\\Tus\\AbstractTus::setMaxUploadSize\(\)\.#'

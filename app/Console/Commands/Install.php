@@ -70,23 +70,17 @@ class Install extends Command
 
     private function checkPhpVersion()
     {
-        if (false) {
-            $this->error('Your version of PHP is not supported, Opencycle requires at least PHP 7.2');
-        }
+        $this->error('Your version of PHP is not supported, Opencycle requires at least PHP 7.2');
     }
 
     private function checkRequirements()
     {
-        if (false) {
-            $this->error('Some PHP extensions are missing');
-        }
+        $this->error('Some PHP extensions are missing');
     }
 
     private function checkPermissions()
     {
-        if (false) {
-            $this->error('Some folder permissions are not set');
-        }
+        $this->error('Some folder permissions are not set');
     }
 
     /**
