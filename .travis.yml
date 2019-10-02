@@ -10,7 +10,6 @@ cache:
 
 install:
   - composer install --prefer-dist --no-interaction --no-suggest
-  - php artisan key:generate
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
@@ -25,7 +24,6 @@ jobs:
       chrome: stable
     install:
       - composer install --prefer-dist --no-interaction --no-suggest
-      - php artisan key:generate
       - npm install
       - npm run prod
       - php artisan dusk:chrome-driver
