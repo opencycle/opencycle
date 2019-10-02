@@ -10,6 +10,7 @@ cache:
 
 install:
   - composer install --prefer-dist --no-interaction --no-suggest
+  - php artisan key:generate
 
 script:
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
@@ -24,12 +25,13 @@ jobs:
       chrome: stable
     install:
       - composer install --prefer-dist --no-interaction --no-suggest
+      - php artisan key:generate
       - npm install
       - npm run prod
       - php artisan dusk:chrome-driver
     before_script:
       - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-      - php artisan serve --port=80 &
+      - php artisan serve &
     script:
       - php artisan dusk
   - stage: docker image
