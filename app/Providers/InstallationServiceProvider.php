@@ -56,7 +56,7 @@ class InstallationServiceProvider extends ServiceProvider
      */
     protected function reloadConfig()
     {
-        with(new Dotenv(app()->environmentPath(), app()->environmentFile()))->overload();
+        with(new Dotenv(app()->environmentPath()))->overload();
         with(new LoadConfiguration())->bootstrap(app());
     }
 }

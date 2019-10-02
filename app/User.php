@@ -33,7 +33,7 @@ class User extends Authenticatable
      * @param Role $role
      * @return bool
      */
-    public function hasRole(Role $role): bool
+    public function hasRole(?Role $role): bool
     {
         return $this->role && $this->role->is($role);
     }

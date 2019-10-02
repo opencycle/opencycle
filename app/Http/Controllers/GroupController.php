@@ -24,7 +24,7 @@ class GroupController extends Controller
      * @param Country $country
      * @param Region $region
      * @param Group $group
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Country $country, Region $region, Group $group)
     {
@@ -36,7 +36,7 @@ class GroupController extends Controller
     /**
      * Display a listing of the logged in users groups.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function user()
     {
@@ -50,7 +50,7 @@ class GroupController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Group $group
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit(Group $group)
     {
@@ -62,7 +62,7 @@ class GroupController extends Controller
      *
      * @param UpdateGroupRequest $request
      * @param Group $group
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateGroupRequest $request, Group $group)
     {

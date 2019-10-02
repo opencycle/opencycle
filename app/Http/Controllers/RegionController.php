@@ -12,7 +12,7 @@ class RegionController extends Controller
      *
      * @param Country $country
      * @param Region $region
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Country $country, Region $region)
     {

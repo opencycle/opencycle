@@ -136,7 +136,7 @@ class Install extends Command
     private function realoadEnv()
     {
         $this->callSilent('config:clear');
-        with(new Dotenv(app()->environmentPath(), app()->environmentFile()))->overload();
+        with(new Dotenv(app()->environmentPath()))->overload();
         with(new LoadConfiguration())->bootstrap(app());
         DB::purge();
     }
@@ -144,10 +144,10 @@ class Install extends Command
     /**
      * Write a key/value out to the .env file.
      *
-     * @param $key
-     * @param $value
+     * @param string $key
+     * @param string $value
      */
-    private function writeEnvVar($key, $value)
+    private function writeEnvVar(string $key, string $value)
     {
         $path = app()->environmentFilePath();
 

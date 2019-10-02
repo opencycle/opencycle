@@ -13,7 +13,6 @@ class UserPolicy
      * Determine whether the user can create a user.
      *
      * @param User $user
-     * @param Group $group
      * @return mixed
      */
     public function create(?User $user)

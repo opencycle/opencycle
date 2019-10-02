@@ -11,7 +11,7 @@ class SearchController extends Controller
      * Search for groups.
      *
      * @param SearchRequest $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function search(SearchRequest $request)
     {

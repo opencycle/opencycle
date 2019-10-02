@@ -9,7 +9,7 @@ class CountryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class CountryController extends Controller
      * Display the specified resource.
      *
      * @param  \Opencycle\Country  $country
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Country $country)
     {

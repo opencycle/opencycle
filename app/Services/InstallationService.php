@@ -31,10 +31,10 @@ class InstallationService
     /**
      * Write a key/value out to the .env file.
      *
-     * @param $key
-     * @param $value
+     * @param string $key
+     * @param string $value
      */
-    public function writeEnvVar($key, $value)
+    public function writeEnvVar(string $key, string $value)
     {
         $path = app()->environmentFilePath();
 

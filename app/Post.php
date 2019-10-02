@@ -46,10 +46,10 @@ class Post extends Model
     /**
      * Created at accessor.
      *
-     * @param $date
+     * @param string $date
      * @return string
      */
-    public function getCreatedAtAttribute($date)
+    public function getCreatedAtAttribute(string $date): string
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('D M j H:i');
     }

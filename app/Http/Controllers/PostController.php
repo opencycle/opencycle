@@ -39,7 +39,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -51,7 +51,7 @@ class PostController extends Controller
     /**
      * Display a listing of the logged in users posts.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function user()
     {
@@ -64,7 +64,7 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -77,7 +77,7 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param CreatePostRequest $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CreatePostRequest $request)
     {
@@ -97,7 +97,7 @@ class PostController extends Controller
      * Display the specified resource.
      *
      * @param  Post $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Post $post)
     {
@@ -112,7 +112,7 @@ class PostController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Post $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit(Post $post)
     {
@@ -124,7 +124,7 @@ class PostController extends Controller
      *
      * @param UpdatePostRequest $request
      * @param Post $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
@@ -137,7 +137,7 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  Post $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
     public function destroy(Post $post)
@@ -151,7 +151,7 @@ class PostController extends Controller
      * Show the form for creating a new resource.
      *
      * @param Post $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function replyCreate(Post $post)
     {
@@ -163,7 +163,7 @@ class PostController extends Controller
      *
      * @param Post $post
      * @param ReplyPostRequest $request
-     * @return void
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function replyStore(Post $post, ReplyPostRequest $request)
     {

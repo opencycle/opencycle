@@ -28,7 +28,7 @@ class InstallController extends Controller
     /**
      * Display the installer welcome page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function start()
     {
@@ -104,7 +104,7 @@ class InstallController extends Controller
     /**
      * Migrate and seed the database.
      *
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function database()
     {

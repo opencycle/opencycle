@@ -13,7 +13,7 @@ class MembershipController extends Controller
      * Show the form for creating a new resource.
      *
      * @param Group $group
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Group $group)
     {
@@ -27,7 +27,7 @@ class MembershipController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Group $group
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit(Group $group)
     {
@@ -43,7 +43,7 @@ class MembershipController extends Controller
      *
      * @param UpdateMembershipRequest $request
      * @param Group $group
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateMembershipRequest $request, Group $group)
     {
@@ -60,7 +60,7 @@ class MembershipController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Group $group
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Group $group)
     {

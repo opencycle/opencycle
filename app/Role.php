@@ -20,9 +20,9 @@ class Role extends Model
      * Get Role of a specific type.
      *
      * @param string $type
-     * @return Role
+     * @return Role|null
      */
-    public static function ofType(string $type)
+    public static function ofType(string $type): ?Role
     {
         return static::where('name', $type)->first();
     }
