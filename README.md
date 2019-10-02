@@ -11,7 +11,7 @@ An open source classified ads platform.
 
 ## Requirements
 
-Opencycle is written in [Laravel](https://laravel.com/docs/5.7/installation#server-requirements) 5.7 so the requirements are the same:
+Opencycle is written in [Laravel](https://laravel.com/docs/6.0/installation#server-requirements) 6.0 so the requirements are the same:
 
 * PHP >= 7.2
 * Composer
