@@ -1,12 +1,4 @@
-sudo: required
-
-services:
-  - docker
-
 language: php
-
-addons:
-  chrome: stable
 
 php:
   - 7.2
@@ -19,25 +11,35 @@ cache:
 install:
   - composer install --prefer-dist --no-interaction --no-suggest
 
+script:
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 jobs:
   include:
-  - stage: run tests
+  - stage: integration tests
+    addons:
+      chrome: stable
+    install:
+      - composer install --prefer-dist --no-interaction --no-suggest
+      - npm install
+      - npm run prod
+      - php artisan dusk:chrome-driver
     before_script:
       - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
       - php artisan serve --port=80 &
     script:
-      - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-      - php artisan dusk:chrome-driver
       - php artisan dusk
-  - stage: build docker image
+  - stage: docker image
     if: branch = master AND tag IS present
+    services:
+      - docker
     script:
       - docker build -t opencycle/opencycle .
       - docker push opencycle/opencycle
-  - stage: package release archive
+  - stage: release archive
     if: branch = master AND tag IS present
     script:
       - composer install --prefer-dist --no-interaction --no-dev
