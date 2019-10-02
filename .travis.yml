@@ -10,6 +10,7 @@ addons:
 
 php:
   - 7.2
+  - 7.3
 
 cache:
   directories:
@@ -26,7 +27,7 @@ jobs:
   - stage: run tests
     before_script:
       - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-      - sudo php artisan serve --port=80 &
+      - php artisan serve --port=80 &
     script:
       - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
       - php artisan dusk:chrome-driver
