@@ -2,7 +2,6 @@
 
 namespace Tests\Browser;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
@@ -10,8 +9,6 @@ use Opencycle\User;
 
 class LoginTest extends DuskTestCase
 {
-    use DatabaseMigrations;
-
     /**
      * Test a user can log in.
      *

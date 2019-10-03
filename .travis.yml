@@ -31,7 +31,7 @@ jobs:
       - php artisan dusk:chrome-driver
     before_script:
       - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-      - php artisan serve &
+      - php artisan serve --env=dusk &
     script:
       - php artisan dusk
   - stage: docker image
