@@ -3,10 +3,25 @@
 namespace Tests\Feature;
 
 use Opencycle\User;
+use Opencycle\Group;
 use Tests\TestCase;
 
 class GroupTest extends TestCase
 {
+    /**
+     * Test anyone can view a group page.
+     *
+     * @return void
+     */
+    public function testAnyoneCanViewGroupPage()
+    {
+        $group = factory(Group::class)->create();
+        $response = $this->get(route('groups.show', [$group->region->country, $group->region, $group]));
+
+        $response->assertOk();
+        $response->assertSee($group->name);
+    }
+
     /**
      * Test a user can view a group page.
      *

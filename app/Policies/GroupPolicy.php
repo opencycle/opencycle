@@ -31,7 +31,7 @@ class GroupPolicy
      *
      * @return bool
      */
-    public function view()
+    public function view(?User $user)
     {
         return true;
     }
