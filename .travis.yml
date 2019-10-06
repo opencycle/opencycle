@@ -25,6 +25,7 @@ jobs:
     addons:
       chrome: stable
     install:
+      - cp .env.example .env
       - composer install --prefer-dist --no-interaction --no-suggest
       - npm install
       - npm run prod
