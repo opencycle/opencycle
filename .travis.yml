@@ -1,60 +1,11 @@
 language: php
-
-php:
-  - 7.2
-  - 7.3
-
-cache:
-  directories:
-    - "$HOME/.composer/cache/files"
-
+addons:
+  chrome: stable
 install:
-  - composer install --prefer-dist --no-interaction --no-suggest
-
+  - cp .env.example .env
+  - php artisan dusk:chrome-driver
+before_script:
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - docker-compose up -d
 script:
-  - ./vendor/bin/phpcs --standard=.phpcs.xml ./app
-  - php artisan code:analyse
-  - ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
-jobs:
-  include:
-  - stage: integration tests
-    addons:
-      chrome: stable
-    install:
-      - cp .env.example .env
-      - composer install --prefer-dist --no-interaction --no-suggest
-      - npm install
-      - npm run prod
-      - php artisan dusk:chrome-driver
-    before_script:
-      - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-      - php artisan serve --env=dusk.testing &
-    script:
-      - php artisan dusk
-  - stage: docker image
-    if: branch = master AND tag IS present
-    services:
-      - docker
-    script:
-      - docker build -t opencycle/opencycle .
-      - docker push opencycle/opencycle
-  - stage: release archive
-    if: branch = master AND tag IS present
-    script:
-      - composer install --prefer-dist --no-interaction --no-dev
-      - yarn install
-      - yarn production
-      - zip -r opencycle.zip . -x@.zipignore
-    deploy:
-      provider: releases
-      api_key:
-        secure: bXO0zhUIaNOC1EehycL3Kjw+kXEpUVrxoJ6n/1xI7oz6hoRj4bIC9xbQm79I/0k7U0PJxkOhOmK3WaCPhLcUmsPYX/DCVka2TQqP/KEmTTp1faokuU0uLH9kSS3VFbPSCF2+yEGhlD0bRzhKrXyaHwrM2/TXmi3ED9y285nRQ2ZU3gjdS+Ik/Z5GvzpjP37N1xHFkjWTI4eBrQ0jGc+3eBE1Z0UIeOIn6dwmXOr6M2pDmfSGX3j3K6knjwOXNn9jZFLCXfs8sLhBNG0yF36yID31w2SjZrCLb2PHXmZbGEboJPA0bib6G+6hrjPhPAz7yKjRMXBdRGAYYeODmxxk1j0Qg9IIxdggM2VadpbKV85vAJCTL2jukha6Dhr0/axAnteoHVrB++S31quK4RV53IAPI7MYER1mQCCeAA64XIabcSyZVKUQ0xBGXXkSVsWJCINKC3ZwTfPxJy+mePpPsXSgjiw6il/B+RD3oF4/fdr6+v1z8X+Qcx9o/2FrIynVBET6h/LvGPSp3YcVloWhEHosCkDOc/3doFX00xRz3EWO34eFLpernKUf9IFCeRKG7Os5wu/2XZ2mZGGpoq9tUTSd6BMSUZ1K11K0VHeTE5PYEE+mwtWb6Mw2E2GCqO9Hwj1A5Vu7CdJFjlL93OcnmAzWXANvTfp6IqxWXLvX6/M=
-      file: opencycle.zip
-      skip_cleanup: true
-      on:
-        repo: opencycle/opencycle
-        tags: true
+  - php artisan dusk
