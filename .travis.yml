@@ -8,6 +8,7 @@ install:
   - cp .env.example .env
   - composer install --prefer-dist --no-interaction --no-suggest
   - php artisan dusk:chrome-driver
+  - php artisan key:generate
 before_script:
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   - docker-compose up -d
