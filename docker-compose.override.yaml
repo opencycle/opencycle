@@ -6,6 +6,7 @@ services:
       - "DB_HOST=database"
       - "DB_CONNECTION=pgsql"
       - "DB_PORT=5432"
+      - "APP_KEY=base64:eS0mT2jTB5+mKQ0OOBJTGUaaDQ69Y8Wi55Zq4nuRel8="
     volumes:
       - ./:/var/www/html
   nginx:
