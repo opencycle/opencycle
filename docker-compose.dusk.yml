@@ -5,14 +5,8 @@ services:
     environment:
       - "DB_HOST=database"
       - "DB_CONNECTION=pgsql"
-    volumes:
-      - ./:/var/www/html
-  nginx:
-    volumes:
-      - ./:/var/www/html
+      - "APP_KEY=base64:eS0mT2jTB5+mKQ0OOBJTGUaaDQ69Y8Wi55Zq4nuRel8="
   database:
-    ports:
-      - 5432:5432
     environment:
       - "POSTGRES_DB=opencycle"
       - "POSTGRES_USER=homestead"

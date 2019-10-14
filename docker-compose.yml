@@ -8,6 +8,8 @@ services:
       - database
   nginx:
     image: opencycle/nginx
+    depends_on:
+      - opencycle
     volumes:
       - app:/var/www/html
     ports:
