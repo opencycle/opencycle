@@ -7,6 +7,8 @@ services:
       - "DB_CONNECTION=pgsql"
       - "APP_KEY=base64:eS0mT2jTB5+mKQ0OOBJTGUaaDQ69Y8Wi55Zq4nuRel8="
   database:
+    ports:
+      - 5432:5432
     environment:
       - "POSTGRES_DB=opencycle"
       - "POSTGRES_USER=homestead"
