@@ -1,6 +1,10 @@
 language: php
 addons:
   chrome: stable
+  artifacts:
+    s3_region: eu-west-1
+    paths:
+      - tests/Browser/screenshots
 cache:
   directories:
     - "$HOME/.composer/cache/files"
