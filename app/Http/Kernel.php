@@ -20,6 +20,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \Opencycle\Http\Middleware\TrustProxies::class,
         \Opencycle\Http\Middleware\IsInstalled::class,
+        \Opencycle\Http\Middleware\SetLocale::class,
     ];
 
     /**
