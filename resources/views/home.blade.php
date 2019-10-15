@@ -13,7 +13,12 @@
                         <form class="form-inline justify-content-center" method="GET" action="{{ route('search') }}">
                             <div class="col-md-8">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="query" placeholder="Find a group near you">
+                                    <input type="text" class="form-control{{ $errors->has('query') ? ' is-invalid' : '' }}" name="query" placeholder="Find a group near you">
+                                    @if ($errors->has('query'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('query') }}</strong>
+                                        </span>
+                                    @endif
                                     <input type="hidden" name="geo">
                                     <div class="input-group-append">
                                         <button class="btn btn-success" type="submit">

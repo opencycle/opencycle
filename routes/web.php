@@ -21,6 +21,8 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
+Route::get('search', 'SearchController@search')->name('search');
+
 Route::resource('users', 'UserController')->only([
     'create', 'store'
 ]);
@@ -48,8 +50,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('groups', 'GroupController')->only([
         'edit', 'update'
     ]);
-
-    Route::get('search', 'SearchController@search')->name('search');
 
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 });
