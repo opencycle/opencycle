@@ -2,15 +2,10 @@ version: '2'
 services:
   opencycle:
     build: ./
+    env_file:
+      - .env.testing
     environment:
-      - "APP_ENV=testing"
-      - "APP_DEBUG=true"
-      - "DB_CONNECTION=pgsql"
       - "DB_HOST=database"
-      - "DB_DATABASE=opencycle"
-      - "DB_USERNAME=homestead"
-      - "DB_PASSWORD=secret"
-      - "APP_KEY=base64:eS0mT2jTB5+mKQ0OOBJTGUaaDQ69Y8Wi55Zq4nuRel8="
   database:
     ports:
       - 5432:5432

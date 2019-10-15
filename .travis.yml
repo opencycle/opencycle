@@ -10,7 +10,6 @@ cache:
 
 install:
   - composer install --prefer-dist --no-interaction --no-suggest
-  - php artisan key:generate
 
 script:
   - ./vendor/bin/phpcs --standard=.phpcs.xml ./app
@@ -23,7 +22,6 @@ after_success:
 jobs:
   include:
   - stage: integration tests
-    if: branch = master AND tag IS present
     services:
       - docker
     addons:
@@ -31,7 +29,6 @@ jobs:
     install:
       - composer install --prefer-dist --no-interaction --no-suggest
       - php artisan dusk:chrome-driver
-      - php artisan key:generate
     before_script:
       - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
       - docker-compose -f docker-compose.yml -f docker-compose.dusk.yml up -d
