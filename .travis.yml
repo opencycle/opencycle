@@ -21,7 +21,7 @@ after_success:
 
 jobs:
   include:
-  - stage: "Integration Test"
+  - stage: integration
     services:
       - docker
     addons:

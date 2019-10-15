@@ -5,7 +5,7 @@
 [![GitHub](https://img.shields.io/github/license/opencycle/opencycle.svg)](https://github.com/opencycle/opencycle/blob/master/LICENSE)
 [![](https://images.microbadger.com/badges/image/opencycle/opencycle.svg)](https://hub.docker.com/r/opencycle/opencycle/)
 
-> Please note this project is still under development so bugs are likely and there is no stable release at the moment. See the [roadmap](#feature-roadmap) for progress.
+> ⚠️ Please note this project is still under development so bugs are likely and there is no stable release at the moment. See the [roadmap](https://github.com/opencycle/opencycle/wiki/Roadmap) for progress.
 
 An open source classified ads platform.
 
@@ -88,45 +88,3 @@ Please keep in mind:
 ## License
 
 Opencycle is released under the [GPLv3 license](LICENSE)
-
-## Feature Roadmap
-
-These are the features still to be developed for each planned release.
-
-#### First alpha release
-
-* General
-  * SEO - social metadata, page titles
-  * Error pages
-  * Style emails
-  * Search
-  * TOS/Privacy policy - cms?
-  * Social logins
-  * Multi language?
-  * Queues
-  * Authenticate routes
-  * Limit seeded countries to ones with enough data
-* Groups
-  * Member count on group page
-  * Group files and links?
-  * User group settings
-  * Create a group
-* Posts
-  * Post types, wanted/offered
-  * Image uploads
-  * Report a post
-  * Post expiry and post/image deletion
-* Admin/moderation area
-  * Post approval
-  * Member approval
-  * Group approval
-  * Group timezone
-  * Group description WYSIWYG editor
-  * Hotwords to force post moderation
-
-#### First beta release
-
-* Moderator email address
-* Invite users to group
-* Admin posts
-* Web installer - https://github.com/rashidlaasri/LaravelInstaller
