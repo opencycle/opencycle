@@ -21,7 +21,7 @@ after_success:
 
 jobs:
   include:
-  - stage: integration tests
+  - name: "Integration Test"
     services:
       - docker
     addons:
@@ -35,14 +35,15 @@ jobs:
       - docker-compose exec opencycle php artisan migrate
     script:
       - php artisan dusk
-  - stage: docker image
+  - stage: deploy
+    name: "Docker Image"
     if: branch = master AND tag IS present
     services:
       - docker
     script:
       - docker build -t opencycle/opencycle .
       - docker push opencycle/opencycle
-  - stage: release archive
+  - name: "Release Archive"
     if: branch = master AND tag IS present
     script:
       - composer install --prefer-dist --no-interaction --no-dev
