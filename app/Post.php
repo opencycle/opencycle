@@ -73,4 +73,14 @@ class Post extends Model
     {
         return $this->belongsTo(Group::class);
     }
+
+    /**
+     * This Posts Images.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }
