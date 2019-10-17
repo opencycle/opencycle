@@ -2,7 +2,7 @@
 
 namespace Opencycle\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Opencycle\Http\Requests\CreateImageRequest;
 use Opencycle\Image;
 
 class ImageController extends Controller
@@ -10,10 +10,10 @@ class ImageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CreateImageRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateImageRequest $request)
     {
         $path = $request->file('image')->store('images/' . md5($request->user()->id), 'public');
 

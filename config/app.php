@@ -164,7 +164,6 @@ return [
         // Opencycle\Providers\BroadcastServiceProvider::class,
         Opencycle\Providers\EventServiceProvider::class,
         Opencycle\Providers\RouteServiceProvider::class,
-        Opencycle\Providers\TusServiceProvider::class,
 
     ],
 
