@@ -30,6 +30,25 @@ class AuthTest extends TestCase
     }
 
     /**
+     * Test a user cannot login with invalid password.
+     *
+     * @return void
+     */
+    public function testUserCannotLoginWithInvalidPassword()
+    {
+        $user = factory(User::class)->create([
+            'password' => Hash::make('test')
+        ]);
+
+        $this->post(route('login'), [
+            'email' => $user->email,
+            'password' => 'wrong',
+        ]);
+
+        $this->assertGuest();
+    }
+
+    /**
      * Test a user can logout.
      *
      * @return void
