@@ -51,12 +51,10 @@ Route::middleware(['auth'])->group(function () {
         'edit', 'update'
     ]);
 
+    Route::post('images', 'ImageController@store')->name('images.store');
+
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 });
-
-Route::any('/tus/{any?}', function () {
-    return app('tus-server')->serve()->send();
-})->where('any', '.*');
 
 Route::get('/pragmarx/countries/flag/file/{cca3}.svg', '\PragmaRX\CountriesLaravel\Package\Http\Controllers\Flag@file')
     ->name('countries.flag.file');

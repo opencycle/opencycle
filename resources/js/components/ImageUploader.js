@@ -1,5 +1,5 @@
 import Uppy from '@uppy/core';
-import Tus from '@uppy/tus';
+import XHRUpload from '@uppy/xhr-upload';
 import { Dashboard } from '@uppy/react';
 import Form from '@uppy/form';
 import React, { Component } from 'react';
@@ -13,11 +13,13 @@ const uppy = Uppy({
         maxNumberOfFiles: 3,
         allowedFileTypes: ['image/*'],
     },
-}).use(Tus, {
-    endpoint: '/tus/',
-    resume: true,
-    autoRetry: true,
-    retryDelays: [0, 1000, 3000, 5000],
+}).use(XHRUpload, {
+    endpoint: '/images/',
+    fieldName: 'image',
+    metaFields: ['name'],
+    headers: {
+        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+    },
 });
 
 export default class ImageUploader extends Component {
