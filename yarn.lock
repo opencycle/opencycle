@@ -759,11 +759,12 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
 
-"@uppy/companion-client@0.27.2":
-  version "0.27.2"
-  resolved "https://registry.yarnpkg.com/@uppy/companion-client/-/companion-client-0.27.2.tgz#526572b5129d7786c06368e8def5bc46c5980048"
-  integrity sha512-AJ/9meDnu67cExtmb/73DuhOzNcK8S/AkKhwyC1ffvc4IZYPoMCllcydXFdVWbKR76V8Jc4XnVPiprWIqrPEPQ==
+"@uppy/companion-client@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@uppy/companion-client/-/companion-client-1.5.1.tgz#88a9b55f8c813eac169c6d1c196d7d2d10985f89"
+  integrity sha512-dAt8CnuWmNRJKIoUsRbk4kjpe5tcsPaZfa0mmdd9TPUp5z548Ni895dkBzWhLmV/JSkRViJ7NNxtWXuyxBeEqQ==
   dependencies:
+    "@uppy/utils" "^3.2.0"
     namespace-emitter "^2.0.1"
 
 "@uppy/core@^0.27.1":
@@ -875,21 +876,29 @@
   dependencies:
     "@uppy/utils" "0.27.1"
 
-"@uppy/tus@^0.27.5":
-  version "0.27.5"
-  resolved "https://registry.yarnpkg.com/@uppy/tus/-/tus-0.27.5.tgz#53504b259419da3f10926b5f11105d5266edbd69"
-  integrity sha512-c9JJwJJLEYx77J92P+YrQNrwtoTo32N4D0ICmvnCCweiyQC9ukijI2eOA+yWQDRcUKlQMCU58IgN4uuehTZDaA==
-  dependencies:
-    "@uppy/companion-client" "0.27.2"
-    "@uppy/utils" "0.27.1"
-    tus-js-client "^1.5.1"
-
 "@uppy/utils@0.27.1":
   version "0.27.1"
   resolved "https://registry.yarnpkg.com/@uppy/utils/-/utils-0.27.1.tgz#53e610d4e5eebc5ecd722f4d711fe4ff20f2d19c"
   integrity sha512-zex1ZavJWSjVhsm1zDlRThLkXBlWAav3rIuL4YDPl9jrWZt5pL7+pccEgwNtO7NmmcQyF7W7z3fKmDrJlvA8lA==
   dependencies:
     lodash.throttle "^4.1.1"
+
+"@uppy/utils@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@uppy/utils/-/utils-3.2.0.tgz#13e90c886381b31038c8fd2bb901dc1006a35272"
+  integrity sha512-Ta+7mKoq6lW6JIesE4YJIeDRv0AxFKPEMJI4SoIW88/9D1hGTsx+G7SdVICBi9I3ttEDBW+WDjmN2BA/9ZaTjg==
+  dependencies:
+    abortcontroller-polyfill "^1.4.0"
+    lodash.throttle "^4.1.1"
+
+"@uppy/xhr-upload@^1.3.2":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@uppy/xhr-upload/-/xhr-upload-1.6.1.tgz#34b75a3ba4f50e83ecf790832bf7d30931995e3a"
+  integrity sha512-47+Unbp5uX6lQsPrq3ho9vaTFFyEHj7r+ikX40K1Uzl7Vt87EY3gZQdfdaZIfpUTqwsAyUYOKJADmgO/TVqU8A==
+  dependencies:
+    "@uppy/companion-client" "^1.5.1"
+    "@uppy/utils" "^3.2.0"
+    cuid "^2.1.1"
 
 "@vue/component-compiler-utils@^3.0.0":
   version "3.0.0"
@@ -1066,6 +1075,11 @@ abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
+
+abortcontroller-polyfill@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/abortcontroller-polyfill/-/abortcontroller-polyfill-1.4.0.tgz#0d5eb58e522a461774af8086414f68e1dda7a6c4"
+  integrity sha512-3ZFfCRfDzx3GFjO6RAkYx81lPGpUS20ISxux9gLxuKnqafNcFQo59+IoZqpO2WvQlyc287B62HDnDdNYRmlvWA==
 
 accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.7:
   version "1.3.7"
@@ -1650,11 +1664,6 @@ browserslist@^4.0.0, browserslist@^4.6.0, browserslist@^4.6.3, browserslist@^4.6
     caniuse-lite "^1.0.30000989"
     electron-to-chromium "^1.3.247"
     node-releases "^1.1.29"
-
-buffer-from@^0.1.1:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-0.1.2.tgz#15f4b9bcef012044df31142c14333caf6e0260d0"
-  integrity sha512-RiWIenusJsmI2KcvqQABB83tLxCByE3upSP8QU3rJDMVFGPWLvPQJt/O1Su9moRWeH7d+Q2HYb68f6+v+tw2vg==
 
 buffer-from@^1.0.0:
   version "1.1.1"
@@ -2971,11 +2980,6 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
     assign-symbols "^1.0.0"
     is-extendable "^1.0.1"
 
-extend@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
-  integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
-
 extglob@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/extglob/-/extglob-2.0.4.tgz#ad00fe4dc612a9232e8718711dc5cb5ab0285543"
@@ -4054,11 +4058,6 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
-js-base64@^2.4.9:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.5.1.tgz#1efa39ef2c5f7980bb1784ade4a8af2de3291121"
-  integrity sha512-M7kLczedRMYX4L8Mdh4MzyAMM9O5osx+4FcOQuTvr3A9F2D9S5JXheN0ewNbrvK2UatkTRhL5ejGmGSjNMiZuw==
-
 js-levenshtein@^1.1.3:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/js-levenshtein/-/js-levenshtein-1.1.6.tgz#c6cee58eb3550372df8deb85fad5ce66ce01d59d"
@@ -4254,9 +4253,9 @@ lodash.uniq@^4.5.0:
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
 lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 loglevel@^1.6.4:
   version "1.6.4"
@@ -6715,17 +6714,6 @@ tty-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
   integrity sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=
-
-tus-js-client@^1.5.1:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/tus-js-client/-/tus-js-client-1.7.1.tgz#1485176052f9a360a957f475edf8e5076e339881"
-  integrity sha512-38NMOvjZm/HQTdmwLctXqctsUUsiuZsdUGBew6xn3/s1D7ofzjW/VBRAp+uAWrzN0ziAmo2WuiZ9FMP9UeU0UQ==
-  dependencies:
-    buffer-from "^0.1.1"
-    extend "^3.0.0"
-    js-base64 "^2.4.9"
-    lodash.throttle "^4.1.1"
-    url-parse "^1.4.3"
 
 type-is@~1.6.17, type-is@~1.6.18:
   version "1.6.18"
